@@ -1,0 +1,29 @@
+language: node_js
+
+node_js:
+- '0.12'
+
+branches:
+  only:
+  - master # 只监测 source 分支上的 commit
+
+before_install:
+- npm install -g hexo-cli # 安装 hexo
+
+install:
+- npm install             # 安装额外的插件
+
+script:
+- git submodule init      # 用于更新主题
+- git submodule update
+- hexo generate
+
+after_success:
+- git config --global user.name "Cielpy"
+- git config --global user.email "beijiu572@gmail.com"
+- sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.yml
+- hexo deploy
+
+env:
+  global:
+    secure: pdi1ozClgZV/xgw5oz3wmlBewOY2Hnrbmr/wj8XkXZ+HIktQwGqWSFos585Dpe3LXXAsysxXeLl2j2vrEUQ3QMOCrwSscV5GlKJ90puAzCjweGfaWqobZIzh+LdXd4iHc5pUQCWMLhj39QSI/J6rwcVhElRyrs/CxdgVdyR+Cd5bsoL7Pk4u0HyiPoMCYq0KmchwCSk61tFCVjuDNk0J4sixWvdiHPiyl1wDpDpCp8km5rZMYUg9OBSq0HSbpCSaktG3tzV8iba/GdAlr8QAB0xFk2cNoybAyf8wsJomXWZycxZvr0VGpEyNgtG0M0kBDRYCsUqfjIsByQ+/+I8UxzDU4tkgBTrBNggwuULeCoVr/WYdXx/Jtl8wvdnk4YKtzJ9L3xZJiDUdY+eDYSf1cBnhNLS5ZauhZE5L+93DjQdRwc8uG5rDvvcqTpJPbQDTpqvJWqeYq45u0n+PzcDiekS3G7S1Yyu4Y0p/WxALDZtn+i5VP8bSTTxQ13gPjThP8MDSig/ga8mhfy8Dx3SKs3U7bbp23P5u2i4jb+GmFew1e4Hil77JKUZqkuF32Q5tnBWTdyAyVQA37eNX22/Ap0q8USMqPgZziiMzPyfyd+dX4bHdIuSjZpD8fnUJiE9IVXCTi9n9iFrGMmjbmghm6FRDC7mb8rZn11hHuYWt4BE=

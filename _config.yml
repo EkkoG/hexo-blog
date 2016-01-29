@@ -1,0 +1,104 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Cielpark
+subtitle: 记录开发 记录生活
+description:
+author: Kevin Guo
+language: zh-CN
+timezone:
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://imciel.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+    编程: programming
+    生活: life
+tag_map:
+    Swift: swift
+    Git: git
+    Objective-C: objective-c
+    iOS: ios
+    Python: python
+    Flask: flask
+    Cocoa: cocoa
+    思考: thinking
+    感悟: feeling
+    学习: learning
+    C语言: c
+    PHP: php
+    JavaScript: javascript
+    HTML: html
+    C++: cpp
+    总结: summary
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: maupassant
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo:
+    github: git@github.com:cielpy/cielpy.github.io.git,master
+
+since: 2014
+
+duoshuo_shortname: imciel
+
+baidu_analytics: 7d99c6e5e5cfb8cdef57d7cbf7b1010a
+google_analytics: UA-51259806-3
+
+social:
+  github: https://github.com/cielpy
+  twitter: https://twitter.com/cielpy5
+  weibo: http://weibo.com/339034414
+
