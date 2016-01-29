@@ -87,7 +87,7 @@ theme: maupassant
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://$GH_TOKEN@github.com/cielpy/cielpy.github.io.git
+  repo: https://github.com/cielpy/cielpy.github.io.git
   branch: master
 
 since: 2014
