@@ -1,29 +1,21 @@
 language: node_js
-
 node_js:
 - '0.12'
-
 branches:
   only:
-  - master # 只监测 source 分支上的 commit
-
+  - master
 before_install:
-- npm install -g hexo-cli # 安装 hexo
-
+- npm install -g hexo-cli
 install:
-- npm install             # 安装额外的插件
-
+- npm install
 script:
-- git submodule init      # 用于更新主题
+- git submodule init
 - git submodule update
 - hexo generate
-
 after_success:
-- git config --global user.name "Cielpy"
+- git config --global user.name "cielpy"
 - git config --global user.email "beijiu572@gmail.com"
-- sed -i -e 's/$REPO_URL/$TOKEN_REPO_URL/g' _config.yml
 - hexo deploy
-
 env:
   global:
-    secure: pdi1ozClgZV/xgw5oz3wmlBewOY2Hnrbmr/wj8XkXZ+HIktQwGqWSFos585Dpe3LXXAsysxXeLl2j2vrEUQ3QMOCrwSscV5GlKJ90puAzCjweGfaWqobZIzh+LdXd4iHc5pUQCWMLhj39QSI/J6rwcVhElRyrs/CxdgVdyR+Cd5bsoL7Pk4u0HyiPoMCYq0KmchwCSk61tFCVjuDNk0J4sixWvdiHPiyl1wDpDpCp8km5rZMYUg9OBSq0HSbpCSaktG3tzV8iba/GdAlr8QAB0xFk2cNoybAyf8wsJomXWZycxZvr0VGpEyNgtG0M0kBDRYCsUqfjIsByQ+/+I8UxzDU4tkgBTrBNggwuULeCoVr/WYdXx/Jtl8wvdnk4YKtzJ9L3xZJiDUdY+eDYSf1cBnhNLS5ZauhZE5L+93DjQdRwc8uG5rDvvcqTpJPbQDTpqvJWqeYq45u0n+PzcDiekS3G7S1Yyu4Y0p/WxALDZtn+i5VP8bSTTxQ13gPjThP8MDSig/ga8mhfy8Dx3SKs3U7bbp23P5u2i4jb+GmFew1e4Hil77JKUZqkuF32Q5tnBWTdyAyVQA37eNX22/Ap0q8USMqPgZziiMzPyfyd+dX4bHdIuSjZpD8fnUJiE9IVXCTi9n9iFrGMmjbmghm6FRDC7mb8rZn11hHuYWt4BE=
+    secure: wtC7FVEmwzAI19jugHHe/WOzPhBNG8zS1urDAxPRCgl3id7IqYkgEa/UQh+hIBPjlb4BXE5k/DJd1h0L6DFDImQ5bhA2i1dXfTPBwhySg4nQNdZPb9gfIbIBFhDqHAi3liqK4Mjwdr2dYy45cZoz8IGEiuIZlKZZ60+NgGWbKPuocNRhX8x/Glw/d+NUDUZa6kVS2qaNK7CD0TlbzyCQMkryOg3i4N/8vLFFpgQigRhQb+XTIsUfcM4Y+HvIgwV18k+WjYD2Iv0SCWNqzIIenZVL33HLe/JnIRdK9RanRtsiki8rTyawxlQMEqMq3cnbMzDn1KEyihdT95ACGy4mOqYeGBKU7Korwz3BOx9iJGmlXCMdPm78UnUxtb2h9VcaPy8Y5uUqtJha68DNyG67yf/Zg2H+5x/6U6pqV/xGTuCUzh8cxcHgYjoobgxwTONVEnCt+ej6Jt7XlBURYhSNPUDUzrhfzRcYghcsvJqWex8kJaKz4aZ92LbDW9X6ROR1SOiGX5vEP5xankJjtPG30xR3HbBPZa13ARBOrA6Sr2znqyEvcHtGT5WxTlEphiCuC/NNv68yoasPQ33ZFcbtIQJrI+pqWR2xaedZY54P/ZTcJOeeLN2X2V/w5eQ9fHhWrqNlYP7N04RzQn/ILqT3YM8dCj/H+KdBr09eJRWykF4=
