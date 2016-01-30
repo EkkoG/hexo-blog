@@ -2,6 +2,8 @@
 title: 我的路由器自动翻墙方案 shadowsock+dns2socks+pdnsd
 tags:      
     - 翻墙
+    - GFW
+    - 网络
 categories:      
     - 杂项
 date: 2016-01-22 18:28:22
