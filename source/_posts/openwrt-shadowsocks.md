@@ -12,11 +12,11 @@ date: 2016-01-22 18:28:22
 
 
 我翻墙上网的历史不长，大概从12年底开始学习使用 GoAgent 开始，中间断断续续使用，到后来开翻墙软件成了上网的起手式，最后把翻墙软件部署到了路由器上，连接路由器的所有设备不用配置自动翻墙。就像这位推友说的
+<!-- more -->
 
 ![](http://ww4.sinaimg.cn/large/74681984gw1f08gjaes3hj20hj0crq5b.jpg)
 
 这里介绍下我现在在用的方案。
-<!-- more -->
 
 ## 准备
 
@@ -41,7 +41,7 @@ pdnsd 可以找 OpenWrt 的资源 [点击下载](https://downloads.openwrt.org/b
 
 dns2socks 2.0版我编译了一下，这里提供 rampis 和 ar71xx 两种类型的下载，
 
-rampis版下载: http://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk 
+rampis版下载: http://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk
 
 ar71xx 版下载: http://imciel.com/resource/dns2socks_2.0-20151206_ar71xx.ipk
 
@@ -64,7 +64,7 @@ Windows 建议用 putty http://www.putty.org/
 这个命令会把当前目录下的三个 ipk 文件传到 ip 地址为192.168.1.1的路由器的/tmp 目录
 scp 的具体用法参考这篇文章：http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html
 传输完成后，换到 ssh 登录的页面，`cd /tmp` 可以 `ls` 看一下三个 ipk 是否在这个目录，如果不存在检查下是不是哪里报错没看到，或者目录写错了，如果存在，那么执行命令
-`opkg install shadowsock-libev-spec.ipk pdnsd.ipk dns2socks.ipk` 
+`opkg install shadowsock-libev-spec.ipk pdnsd.ipk dns2socks.ipk`
 如果 `opkg update` 时正常，那么这个时候应该是会正常安装成功的。
 
 dns2socks 需要一个 socks5 代理，其原理就是将 dns 解析请求通过 socks 代理解析，这里 socks5代理用 shadowsocks-libev 提供，由于已经 安装了 shadowsocks-libev-spec，如果直接安装 shaodowsokc-libev 会和 shadowsocks-libev-spec 的部分文件冲突，那么就手动安装 shadowsocks-libev，方法：
@@ -87,7 +87,7 @@ dns2socks 需要一个 socks5 代理，其原理就是将 dns 解析请求通过
 * 设置 dns2socks 下载脚本 https://gist.github.com/cielpy/798f1a0e9ee01ffc8f4a 并上传到路由器 /etc/init.d/ 目录
 * 设置 pdnsd 下载脚本 https://gist.github.com/cielpy/b1356b009c887ce22de4 并上传到路由器 /etc/init.d/ 目录
 * 下载 dnsmasq-china-list 并解压，将里面的 `.conf` 文件上传到路由器的 /etc/dnsmasq.d/ 目录，若无这个目录，新建一个即可
-* 在/etc/dnsmasq.conf 中加上以下几行 
+* 在/etc/dnsmasq.conf 中加上以下几行
 ```
 server=127.0.0.1#7453
 no-resolv
