@@ -1,9 +1,9 @@
 ---
 title: 漫谈 Apple Pay
 tags:
-  - 无
+  - Apple
 categories:
-  - 无
+  - 生活
 date: 2016-02-20 15:19:43
 ---
 
