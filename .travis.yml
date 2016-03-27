@@ -7,6 +7,7 @@ branches:
 before_install:
 - npm install -g hexo-cli
 - git clone https://github.com/cielpy/landscape-plus.git themes/landscape-plus
+- git clone https://github.com/cielpy/jacman.git themes/jacman
 install:
 - npm install
 script:
