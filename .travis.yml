@@ -6,12 +6,10 @@ branches:
   - master
 before_install:
 - npm install -g hexo-cli
-- git clone https://github.com/cielpy/landscape-plus.git
+- git clone https://github.com/cielpy/landscape-plus.git themes/jacman
 install:
 - npm install
 script:
-- git submodule init
-- git submodule update
 - hexo generate
 after_success:
 - git config --global user.name "cielpy"
