@@ -6,6 +6,7 @@ branches:
   - master
 before_install:
 - npm install -g hexo-cli
+- git clone https://github.com/cielpy/landscape-plus.git
 install:
 - npm install
 script:
