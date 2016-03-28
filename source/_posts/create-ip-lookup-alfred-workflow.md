@@ -35,7 +35,7 @@ Workflow 的制作方法，还是挺简单的，流程就是，查询数据-封�
 只需要改动 main 方法部分，把数据改成自己想要的就可以
 我这里用了 http://ip-api.com/docs/api:json 的 API
 由于 alfred-workflow 的封装，其实自己是不需要做什么工作的，最终修改出来的代码如下
-```
+``` python
 import sys
 from workflow import Workflow, ICON_WEB, web
 
