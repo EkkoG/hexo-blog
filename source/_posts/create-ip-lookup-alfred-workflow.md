@@ -1,5 +1,5 @@
 ---
-title: 制作一个查询 ip 的 Alfred Workflow
+title: 制作一个查询 IP 的 Alfred Workflow
 tags:
   - Alfred
   - Workflow
