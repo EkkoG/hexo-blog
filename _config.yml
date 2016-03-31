@@ -86,8 +86,9 @@ theme: jacman
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/cielpy/cielpy.github.io.git
-  branch: master
+  repo:
+    github: git@github.com:cielpy/cielpy.github.io.git,master
+    coding: git@git.coding.net:cielpy/hexoblog.git,master
 
 since: 2014
 

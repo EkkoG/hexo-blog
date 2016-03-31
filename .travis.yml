@@ -5,6 +5,16 @@ branches:
   only:
   - master
 before_install:
+- openssl aes-256-cbc -K $encrypted_80b769817dc1_key -iv $encrypted_80b769817dc1_iv
+  -in ~/.travis/blog.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+# Start SSH agent
+- eval $(ssh-agent)
+# Add the private key to the system
+- ssh-add ~/.ssh/id_rsa
+# Copy SSH config
+- cp .travis/ssh_config ~/.ssh/config
+
 - npm install -g hexo-cli
 - git clone https://github.com/cielpy/landscape-plus.git themes/landscape-plus
 - git clone https://github.com/cielpy/jacman.git themes/jacman
@@ -15,8 +25,4 @@ script:
 after_success:
 - git config --global user.name "cielpy"
 - git config --global user.email "beijiu572@gmail.com"
-- sed -i'' "/^ *repo/s~github\.com~${GH_TOKEN}@github.com~" _config.yml
-- hexo deploy --silent
-env:
-  global:
-    secure: ZieNGgbJ7bON8cQpYEwaDDkDtuvuwZ+MF+pDzUQsb1Ta8GeJ07zlEgjAAtOx415UCwRu2KJ93FtvXdjFNr9XCgD9MSwkN5Wib7h6D+XzDwaHBm5k0jbLDwvDIsmh/j6zBX+4y3hm1d0X+lH97wBJ7i7/BMNUqF8zhxPnpUDga1TihA92YIxe3NCZDa/OGp4F9MhXBZzKIsZJl+AA7S+FIF3cFNSI3DukwuHnpdNVs8B1IMeG8R52OchD2uzQnJqRK2mDzxJltUG4wBr7geDE3lY0xolgzefy73ThJG6UdeFQRtdbi0FPdYpMYN6EisMIQRJ/F9j/yDpnHnwG3yybuOcTRMUP7TGsYO6p98WJcb9gdy1d6s+qYBscZPy2bGhjdDjdvvtr8T5Vtw7a49rkSXkOnHE46C2E5b50hSDfC+TYINASJEaEB6WutbR+fLc5lOPVtPp7cOJWFToSazpWeERWmbzO4E463OSbh3ju1DlsyM2Js7ggp+9WeY4fflj4OdDP1Qu3Ja4my58MNPfBz0xC2hwc/4fvVwm4GjDXh5Sgj35AK3IJKOpSZJ6NK025dgtiSglcwiAimFyEurh2dTFjgrNkQ3bbETMsdabPr+twMpWKPvCQu3iR3EIe7l0TnF6Qx2O/ojisEErdj4OQM0uPfWqth8m13j4ZRbql9Po=
+- hexo deploy
