@@ -8,21 +8,18 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_80b769817dc1_key -iv $encrypted_80b769817dc1_iv
   -in .travis/blog.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
-# Start SSH agent
 - eval $(ssh-agent)
-# Add the private key to the system
 - ssh-add ~/.ssh/id_rsa
-# Copy SSH config
 - cp .travis/ssh_config ~/.ssh/config
+- git config --global user.name "cielpy"
+- git config --global user.email "beijiu572@gmail.com"
+
+- git clone https://github.com/cielpy/jacman.git themes/jacman
 
 - npm install -g hexo-cli
-- git clone https://github.com/cielpy/landscape-plus.git themes/landscape-plus
-- git clone https://github.com/cielpy/jacman.git themes/jacman
 install:
 - npm install
 script:
 - hexo generate
 after_success:
-- git config --global user.name "cielpy"
-- git config --global user.email "beijiu572@gmail.com"
 - hexo deploy
