@@ -16,5 +16,5 @@ iOS 工程师，不想当将军的程序员不是好厨子
 -  Twitter: https://twitter.com/cielpy5
 -  Github: https://github.com/cielpy
 -  豆瓣读书: https://book.douban.com/people/cielpy/
--  微博: https://weibo.com/339034414/home?wvr=5
+-  微博: https://weibo.com/339034414/
 -  Instagram: https://instagram.com/cielpy5
