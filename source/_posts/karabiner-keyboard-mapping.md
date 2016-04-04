@@ -43,6 +43,8 @@ date: 2016-04-04 14:31:29
 
 Karabiner 还提供了很多组合方法，单一按键映射，组合键映射到单一键，组合键映射到组合键等，有需求的话可以研究一下。
 
+另外 Karabiner 是一个开源软件，如此神器，如果觉得有用可以适当捐赠一下哈 :)
+
 参考：
 1. https://pqrs.org/osx/karabiner/xml.html.en
 2. https://github.com/tekezo/Karabiner/blob/version_10.18.0/src/bridge/generator/keycode/data/KeyCode.data
