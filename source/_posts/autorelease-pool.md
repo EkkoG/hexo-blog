@@ -37,7 +37,7 @@ int main(int argc, char * argv[])
 
 > 在没有手加Autorelease Pool的情况下，Autorelease对象是在当前的runloop迭代结束时释放的，而它能够释放的原因是系统在每个runloop迭代中都加入了自动释放池Push和Pop
 
-背后的机选涉及到了 runloop 和 Autorelease Pool 的底层实现，这里我理解不深，详情可以看 sunnyxxx 的博文 [http://blog.sunnyxx.com/2014/10/15/behind-autorelease/#Autorelease原理](http://blog.sunnyxx.com/2014/10/15/behind-autorelease/#Autorelease原理) 有例子验证有分析，值得一看。
+背后的机制涉及到了 runloop 和 Autorelease Pool 的底层实现，这里我理解不深，详情可以看 sunnyxxx 的博文 [http://blog.sunnyxx.com/2014/10/15/behind-autorelease/#Autorelease原理](http://blog.sunnyxx.com/2014/10/15/behind-autorelease/#Autorelease原理) 有例子验证有分析，值得一看。
 
 显式创建 Autorelease Pool 的语法如下
 
