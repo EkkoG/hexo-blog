@@ -8,6 +8,8 @@ categories:
 date: 2016-05-11 00:26:47
 ---
 
+###  问题
+
 之前被问到两个问题
 
 * Autorelease Pool 中有什么对象？
@@ -21,8 +23,11 @@ date: 2016-05-11 00:26:47
 
 之前对 Autorelase Pool  是否影响局部变量不是太确定，文档显示，Autorelease Pool 只包含收到 `autorelease` 消息的对象，局部变量的生命周期应该有持有者管理，Autorelease Pool 只管 `autorelease` 对象。如果对象创建后没有 `release` 则造成内存泄露，Autorelease Pool  并不会自动帮开发者处理这些造成内存泄露的对象。
 
+###  两种 Autorelease Pool
+
 系统会维护一个 Autorelease Pool，还可以显式创建 Autorelease Pool 。
 
+####  系统的 Autorelease Pool
 打开 Xcode 创建的工程中的 main.m，可以看到如下代码
 
 ```
@@ -39,6 +44,8 @@ int main(int argc, char * argv[])
 
 背后的机制涉及到了 runloop 和 Autorelease Pool 的底层实现，这里我理解不深，详情可以看 sunnyxxx 的博文 [http://blog.sunnyxx.com/2014/10/15/behind-autorelease/#Autorelease原理](http://blog.sunnyxx.com/2014/10/15/behind-autorelease/#Autorelease原理) 有例子验证有分析，值得一看。
 
+#### 显式创建 Autorelease Pool
+
 显式创建 Autorelease Pool 的语法如下
 
 ```
@@ -51,9 +58,11 @@ int main(int argc, char * argv[])
 
 关于其中的机制，参考资料中的两篇文章讲的足够详细，可以细细研究一番。
 
+### 写在后面
+
 学海无涯，且行且学吧:)
 
-
+### 参考资料
 
 * [黑幕背后的Autorelease](http://blog.sunnyxx.com/2014/10/15/behind-autorelease/)
 * [Objective-C Autorelease Pool 的实现原理](http://blog.leichunfeng.com/blog/2015/05/31/objective-c-autorelease-pool-implementation-principle/)
