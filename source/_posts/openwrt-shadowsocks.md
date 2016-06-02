@@ -14,7 +14,7 @@ date: 2016-01-22 18:28:22
 我翻墙上网的历史不长，大概从12年底开始学习使用 GoAgent 开始，中间断断续续使用，到后来开翻墙软件成了上网的起手式，最后把翻墙软件部署到了路由器上，连接路由器的所有设备不用配置自动翻墙。就像这位推友说的
 <!-- more -->
 
-![](http://ww4.sinaimg.cn/large/74681984gw1f08gjaes3hj20hj0crq5b.jpg)
+![](https://ww4.sinaimg.cn/large/74681984gw1f08gjaes3hj20hj0crq5b.jpg)
 
 这里介绍下我现在在用的方案。
 
@@ -41,9 +41,9 @@ pdnsd 可以找 OpenWrt 的资源 [点击下载](https://downloads.openwrt.org/b
 
 dns2socks 2.0版我编译了一下，这里提供 rampis 和 ar71xx 两种类型的下载，
 
-rampis版下载: http://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk
+rampis版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk
 
-ar71xx 版下载: http://imciel.com/resource/dns2socks_2.0-20151206_ar71xx.ipk
+ar71xx 版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ar71xx.ipk
 
 ## OpenWrt 安装
 
@@ -83,7 +83,7 @@ dns2socks 需要一个 socks5 代理，其原理就是将 dns 解析请求通过
 
 ## 软件配置
 * 配置 shadowsocks 账号，登录路由器后台，服务-shadowsocks，对应填上自己的 shadowsocks账号就行了
-  ![](http://ww1.sinaimg.cn/large/74681984gw1f08pim5dlvj20gj0eo3z4.jpg)
+  ![](https://ww1.sinaimg.cn/large/74681984gw1f08pim5dlvj20gj0eo3z4.jpg)
 * 设置 dns2socks 下载脚本 https://gist.github.com/cielpy/798f1a0e9ee01ffc8f4a 并上传到路由器 /etc/init.d/ 目录
 * 设置 pdnsd 下载脚本 https://gist.github.com/cielpy/b1356b009c887ce22de4 并上传到路由器 /etc/init.d/ 目录
 * 下载 dnsmasq-china-list 并解压，将里面的 `.conf` 文件上传到路由器的 /etc/dnsmasq.d/ 目录，若无这个目录，新建一个即可
