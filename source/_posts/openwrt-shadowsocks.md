@@ -1,5 +1,5 @@
 ---
-title: 我的路由器自动翻墙方案 shadowsock+pdnsd
+title: 我的路由器自动翻墙方案 shadowsocks+dns2socks-pdnsd+dnsmasq
 tags:      
     - 翻墙
     - GFW
@@ -124,3 +124,5 @@ conf-dir=/etc/dnsmasq.d
 2. [WNDR4300 折腾 openwrt 记](http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html)
 3. [科学上网之五----dns2socks](http://www.bubuko.com/infodetail-624247.html)
 4. [加速OpenWRT路由器的DNS解析 – pdnsd代替dnsmasq](https://cokebar.info/archives/734)
+
+
