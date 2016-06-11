@@ -80,7 +80,7 @@ returenType (^)(parameterType)
 * [函数式编程初探](http://www.ruanyifeng.com/blog/2012/04/functional_programming.html)
 * [objc利用block实现链式编程方法](http://www.cnblogs.com/xiaobajiu/p/4772114.html)
 * [How Do I Declare A Block in Objective-C?](http://fuckingblocksyntax.com/)
-* [FP in Scala(二)：OOP和λ-演算的结合 Part IV：Stream(流)](http://www.shunmian.me/functional%20programming/2015/10/07/Functional-Programming-in-Scala(%E4%BA%8C)_OOP%E5%92%8C%CE%BB-%E6%BC%94%E7%AE%97%E7%9A%84%E7%BB%93%E5%90%88-Part-IV-%E6%B5%81.html)
+* [FP in Scala(二)：OOP和λ-演算的结合 Part IV：Stream(流)](http://bit.ly/1VSaCiA)
 
 --EOF--
 
