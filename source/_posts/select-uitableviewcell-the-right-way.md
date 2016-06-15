@@ -1,5 +1,5 @@
 ---
-title: 选中 UITableView 的正确方式
+title: 选中 UITableViewCell 及保存选中状态的正确方式
 tags:
   - iOS
 categories:
