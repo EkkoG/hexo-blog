@@ -22,6 +22,8 @@ date: 2016-06-15 15:14:52
 我们同时可以在这个断点触发时看到左侧的调用栈信息
 
 `cell` 在初始化或者重用时，调用 `-_configureCellForDisplay:forIndexPath:` 方法，这个方法会做一些附带操作，其中会调用 `setSelected:animated:` 方法，将 cell 的选中状态置为未选中。
+![](https://o4zqhe4wo.qnssl.com/2016-06-15-14659754782987.jpg)
+
 ![](https://o4zqhe4wo.qnssl.com/blog-img/1465975297629.png)
 
 在 `tableView:cellForRowAtIndexPath:` 中调用 `setSelected:animated:` 方法将 `cell` 设置为了选中
