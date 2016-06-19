@@ -145,7 +145,7 @@ iOS 7 开始，苹果提供了一个叫作 JavaScriptCore 的框架，使用 Jav
 
 苹果添加的这些新特性可以给开发带来很多便利，就是不知道有坑没有，嗯，且爬且珍惜吧。
 
-使用 JavaScriptCore 进制通讯的 demo 放到了 GitHub，地址如下：
+使用 JavaScriptCore 实现通讯的 demo 放到了 GitHub，地址如下：
 https://github.com/cielpy/CPYJSCoreDemo
 
 ### 参考资料
