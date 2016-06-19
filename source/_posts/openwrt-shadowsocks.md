@@ -1,5 +1,5 @@
 ---
-title: 我的路由器自动翻墙方案 shadowsocks+dns2socks-pdnsd+dnsmasq
+title: 我的路由器自动翻墙方案 shadowsocks+dns2socks+pdnsd+dnsmasq
 tags:      
     - 翻墙
     - GFW
