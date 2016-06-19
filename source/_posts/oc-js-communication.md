@@ -1,10 +1,11 @@
 ---
-title: 使用 JavaScriptCore 进行 JS和OC之间的通信
+title: 使用 JavaScriptCore 实现 JS和OC间的通信
 tags:
   - JavaScriptCore
   - JavaScript
   - iOS
   - Objective-C
+  - WebViewJavascriptBridge
 categories:
   - 编程
 date: 2016-06-18 20:44:26
