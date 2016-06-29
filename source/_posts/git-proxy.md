@@ -69,9 +69,9 @@ Host github.com
    # 如果用默认端口，这里是 github.com，如果想用443端口，这里就是 ssh.github.com 详见 https://help.github.com/articles/using-ssh-over-the-https-port/
    HostName github.com
    User git
-   # 如果是 HTTP 代理，把下面这行取消注释，并把 proxyport 改成自己的 http 代码的端口
+   # 如果是 HTTP 代理，把下面这行取消注释，并把 proxyport 改成自己的 http 代理的端口
    # ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=6667
-   # 如果是 socks5 代码，则把下面这行取消注释，并把 6666 改成自己 socks5 代码的端口
+   # 如果是 socks5 代理，则把下面这行取消注释，并把 6666 改成自己 socks5 代理的端口
    # ProxyCommand nc -v -x 127.0.0.1:6666 %h %p
 
 ```
@@ -83,6 +83,8 @@ Host github.com
 ### 写在后面
 
 希望这些配置可以改善我们天朝程序员的生活质量吧:)
+
+--EOF--
 
 ### 参考资料
 * [Tutorial: how to use git through a proxy](https://cms-sw.github.io/tutorial-proxy.html)
