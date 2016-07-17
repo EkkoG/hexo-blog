@@ -80,34 +80,8 @@ markdown-img-upload 中有一个 clipboard 模块，展示了怎么样读取剪�
 整个流程就是
 
 
-```flow
-st=>start: 开始
-e=>end: 得到 URL并拷贝到剪切板
-shortcut=>operation: 键入快捷键
-hasLogin=>condition: 检查登录状态
-config=>subroutine: 配置
-hasConfigFile=>condition: 配置文件存在
-readConfig=>operation: 读取配置
-generateConfig=>operation: 生成初始配置文件
-openEditor=>operation: 打开编辑器
-login=>operation: 登录
-loginSuccess=>condition: 登录成功
-deleteConfig=>operation: 删除配置文件
-getFilePath=>operation: 获取文件路径
-upload=>operation: 上传图片
-uploadSuccess=>condition: 上传成功
-pasteURL=>operation: 复制 URL 到剪切板
+![](https://ww3.sinaimg.cn/large/74681984gw1f5xd9z35yrj20wh0usdhb)
 
-st->shortcut->hasLogin
-hasLogin(yes)->getFilePath->upload->uploadSuccess
-uploadSuccess(yes)->e
-uploadSuccess(no)->shortcut
-hasLogin(no)->config->hasConfigFile
-hasConfigFile(yes)->readConfig->login->loginSuccess
-loginSuccess(yes)->deleteConfig->getFilePath(right)
-loginSuccess(no)->shortcut
-hasConfigFile(no)->generateConfig->openEditor
-```
 
 
 最终得到 main 模块 [main.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/b4bcfd440641c19859a2903bd09405234d212810/main.py)
@@ -129,6 +103,11 @@ hasConfigFile(no)->generateConfig->openEditor
 Ctrl + V 只复制图片 URL，Ctrl + B 复制 Markdown 格式字符串并插入图片 URL。
 
 这样在需要插入图片时就不需要那么多烦琐的步骤了，复制图片或者截图，根据需求按相应的快捷键，得到图片 URL 或者 Markdown 字符串，粘贴就好了。:)
+
+### 参考资料
+* [WeiboPicBed](https://github.com/Suxiaogang/WeiboPicBed)
+* [markdown-img-upload](https://github.com/tiann/markdown-img-upload)
+* [简化 markdown 写作中的贴图流程](http://weishu.me/2015/10/16/simplify-the-img-upload-in-markdown/)
 
 --EOF--
 
