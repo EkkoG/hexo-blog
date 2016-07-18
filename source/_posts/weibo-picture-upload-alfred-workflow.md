@@ -80,7 +80,7 @@ markdown-img-upload 中有一个 clipboard 模块，展示了怎么样读取剪�
 整个流程就是
 
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f5xd9z35yrj20wh0usdhb)
+![](https://ww3.sinaimg.cn/large/74681984gw1f5xziyjddwj20x90usdhd)
 
 
 
