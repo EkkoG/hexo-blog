@@ -100,7 +100,7 @@ markdown-img-upload 中有一个 clipboard 模块，展示了怎么样读取剪�
 ![](https://ww3.sinaimg.cn/large/74681984gw1f5xbkf7f9oj20nh0geabb
 )
 
-Ctrl + V 只复制图片 URL，Ctrl + B 复制 Markdown 格式字符串并插入图片 URL。
+Ctrl + Command + V 只复制图片 URL，Ctrl + Command + B 复制 Markdown 格式字符串并插入图片 URL。
 
 这样在需要插入图片时就不需要那么多烦琐的步骤了，复制图片或者截图，根据需求按相应的快捷键，得到图片 URL 或者 Markdown 字符串，粘贴就好了。:)
 
