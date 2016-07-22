@@ -94,10 +94,9 @@ date: 2016-07-22 23:07:09
 
 `subscriber` 创建后，会调用信号的 `subscribe` 方法，并将得到的返回值返回。
 
-```
-
 `RACDynamicSignal` 重写了父类 `RACSignal` 的 `subscribe` 方法
 
+```
 - (RACDisposable *)subscribe:(id<RACSubscriber>)subscriber {
 	NSCParameterAssert(subscriber != nil);
 
