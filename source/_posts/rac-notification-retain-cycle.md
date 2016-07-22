@@ -167,6 +167,8 @@ NSNotificationCenter 实例 -> observer -> usingBlock -> subscriber -> nextBlock
 
 由于 RAC 中大量使用 `block`，虽然可以写出更简单易读的代码，但是也隐藏了一些坑，使用时还是要小心。
 
+最后，如有理解偏差，还望指正。
+
 --EOF--
 
 
