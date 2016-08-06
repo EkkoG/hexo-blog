@@ -51,7 +51,7 @@ CoccoaPods 会问几个问题
 
 ![](https://ww3.sinaimg.cn/large/74681984gw1f66k878ogcj20ku04qmym)
 
-CocoaPods 会更新 pod，这里直接从之前的 `Classes` 文件夹中获取文件更新，完成后我们再看回 Xcode 是上目录树，添加的三个文件出现在了 `Development Pods` 下
+CocoaPods 会更新 pod，这里直接从之前的 `Classes` 文件夹中获取文件更新，完成后我们再看回 Xcode 的目录树，添加的三个文件出现在了 `Development Pods` 下
 
 ![](https://ww3.sinaimg.cn/large/74681984gw1f66kg3k76gj20m60noq62)
 
