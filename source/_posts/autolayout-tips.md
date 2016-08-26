@@ -72,6 +72,28 @@ head.data = data;
 self.tableView.tableHeaderView = head;
 ```
 
+这样的用法在 iOS 9 上是可以正常布局并得到正确的 frame 的，但是在 iOS 8 上的表现和 iOS 9 上不同，需要另外处理一下。
+
+```
+CPYCustomTableHeadView *head = [[CPYCustomTableHeadView alloc] init];
+// 绑定数据
+head.data = data;
+
+// 告诉布局系统需要马上布局
+[head setNeedsLayout];
+[head layoutIfNeeded];
+
+CGFloat height = [headView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+
+//update the header's frame and set it again
+CGRect headerFrame = head.frame;
+headerFrame.size.height = height;
+headerFrame.size.width = CGRectGetWidth(self.view.bounds);
+head.frame = headerFrame;
+    
+self.tableView.tableHeaderView = head;
+```
+
 ### 写在后面
 
 这里主要是 Autolayout 优先级的一个简单的应用，Autolayout 还可以做很多事，再遇到的话再写吧。
