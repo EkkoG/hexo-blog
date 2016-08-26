@@ -1,10 +1,12 @@
 ---
-title: iOS UIView 圆角和加边框方式总结
+title: 几个 Autolayout 技巧
 tags:
-  - 无
+  - Autolayout
+  - iOS
+  - 自动布局
 categories:
-  - 无
-date: 2016-08-27 00:36:41
+  - 编程
+date: 2016-08-23 22:51:50
 ---
 
 
@@ -17,6 +19,7 @@ iOS 中时常需要把某个 View 圆角处理，这样界面看起来更圆融�
 ```
 view.layer.cornerRadius = 8.0f;
 ```
+
 ![](https://ww3.sinaimg.cn/large/74681984gw1f77j6k27llj20hs0git90)
 
 如果该 View 有子 View，会是这种状况
@@ -150,7 +153,7 @@ UIView+CPYExtension.m
 
 不好的是，上一种方式的缺点，这个方式也都有。:(
 
-### 生成圆角背景图片方式 
+### 生成圆角背景图片方式
 
 ```
     CGFloat w = 200;
@@ -252,4 +255,6 @@ UIView+CPYExtension.m
 ### 参考资料
 * [How is the relation between UIView's clipsToBounds and CALayer's masksToBounds?](https://stackoverflow.com/questions/1177775/how-is-the-relation-between-uiviews-clipstobounds-and-calayers-maskstobounds)
 * [iOS 高效添加圆角效果实战讲解](http://www.jianshu.com/p/f970872fdc22)
+
+
 
