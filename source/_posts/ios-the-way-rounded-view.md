@@ -1,12 +1,11 @@
 ---
-title: 几个 Autolayout 技巧
+title: iOS UIView 圆角和加边框方式总结
 tags:
-  - Autolayout
-  - iOS
-  - 自动布局
+  - iOS 开发
+  - 圆角处理
 categories:
   - 编程
-date: 2016-08-23 22:51:50
+date: 2016-08-27 22:51:50
 ---
 
 
