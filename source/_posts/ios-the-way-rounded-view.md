@@ -248,12 +248,33 @@ UIView+CPYExtension.m
 
 这种方法的好处是不会触发离屏渲染，生成图片和圆角都由 CPU 处理，且边框清晰，没有黑边，唯一的缺点应该就是不能处理子 View，在四角处的子 View 不会被「切」掉，毕竟是一个圆角背景造成的圆角假象，对子 View 没有什么影响力。
 
+### 使用遮罩层
+
+这个遮罩层不是上面提遮罩 layer，是一张你想要保留的形状的一张图片，比如想要圆角图片，可以让设计师做一张这样图片：
+
+![](https://github.com/johnil/VVeboTableViewDemo/blob/master/VVeboTableViewDemo/corner_circle@2x.png?raw=true)
+
+中间透明，周围是想要盖住的形状，最中看到的是中间留下来的形状，这种做法没有什么性能损耗，就是需要麻烦设计师做一张图。
+
+具体的做法见 https://github.com/johnil/VVeboTableViewDemo/blob/master/VVeboTableViewDemo/view/VVeboTableViewCell.m#L46
+
+也可以跑一下这个 demo 看看怎么对 UITableView 优化的。
+
 ### 写在后面
-暂时这三种方式都不能满足所有需求。
+在 [离屏渲染优化](http://www.jianshu.com/p/ca51c9d3575b) （建议好好看看篇文章）中，seedante 对各种圆角方案也有总结对比，最终得到这样一个结果：
+
+> 任何时候优先考虑避免触发离屏渲染，无法避免时优化方案有两种：
+
+> Rasterization：适用于静态内容的视图，也就是内部结构和内容不发生变化的视图，对上面的所有效果而言，在实现成本以及性能上最均衡的。即使是动态变化的视图，开启 Rasterization 后能够有效降低 GPU 的负荷，不过在动态视图里是否启用还是看 Instruments 的数据。
+> 规避离屏渲染，用其他手法来模拟效果，混合图层是个性能最好、耗能最少的通用优化方案，尤其对于 rounded corer 和 mask。
+
+总的来说，圆角方案需要根据情况具体选择用哪种方式。
 
 ### 参考资料
 * [How is the relation between UIView's clipsToBounds and CALayer's masksToBounds?](https://stackoverflow.com/questions/1177775/how-is-the-relation-between-uiviews-clipstobounds-and-calayers-maskstobounds)
 * [iOS 高效添加圆角效果实战讲解](http://www.jianshu.com/p/f970872fdc22)
+* [离屏渲染优化详解：实例示范+性能测试](http://www.jianshu.com/p/ca51c9d3575b)
+* [VVeboTableViewDemo](https://github.com/johnil/VVeboTableViewDemo)
 
 
 
