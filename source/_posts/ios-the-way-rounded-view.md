@@ -19,11 +19,11 @@ iOS 中时常需要把某个 View 圆角处理，这样界面看起来更圆融�
 view.layer.cornerRadius = 8.0f;
 ```
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77j6k27llj20hs0git90)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77j6k27llj20hs0git90)
 
 如果该 View 有子 View，会是这种状况
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77j9loszdj20hs0gkdg2)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77j9loszdj20hs0gkdg2)
 
 
 
@@ -33,7 +33,7 @@ view.layer.cornerRadius = 8.0f;
 view.clipsToBounds = YES;
 ```
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77jaik660j20hs0hkt92)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77jaik660j20hs0hkt92)
 
 如果需要边框，也简单，加上 layer 的边框设置就可以。
 
@@ -44,11 +44,11 @@ view.clipsToBounds = YES;
 
 但是如果细看，会发现边框有严重的黑边，特别是当 View 背景色比较深的时候。
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77kapky3dj20uo0xuq3v)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77kapky3dj20uo0xuq3v)
 
 这个方法好处就是简单，哪里需要圆角就在哪里设置就可以了。当然也是有缺点的，这种方式处理的圆角很模糊，特别是在视图比较小的时候，质量不高，当背景色比较深的时候有边框有黑边现象，而且如果使用了 `clipToBounds`，则会触发离屏渲染（这个一个很大的坑，有兴趣的话可以详细了解下），造成很严重的卡顿问题，特别是在 UITableViewCell 的子 View 中这样使用，掉帧会很严重。
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f7781hpzf7j20dm0b4mxd)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f7781hpzf7j20dm0b4mxd)
 
 ### 设置 mask layer
 
@@ -84,7 +84,7 @@ UIView+CPYExtension.m
 
 运行后看到效果如下：
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77jz0biaxj20hs0j03yv)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77jz0biaxj20hs0j03yv)
 
 一个只有四个角的 layer 盖到原来的 layer 上，达到圆角效果。
 
@@ -136,11 +136,11 @@ UIView+CPYExtension.m
 ```
 效果是这样的：
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77ku0l1mvj20hs0isq30)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77ku0l1mvj20hs0isq30)
 
 如果放大了看，是这样的
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77kuvjl4oj20uo0xsgm3)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77kuvjl4oj20uo0xsgm3)
 
 边框刚好骑在了边界上，如果这时候我们在使用 maskLayer 做圆角，那骑在边界上的边框有外面一半将被吃掉，只剩下一半，所以要把 borderLayer 往里挪一半的边框的距离，避免让 maskLayer 吃掉外面那部分边框。
 
@@ -170,7 +170,7 @@ UIView+CPYExtension.m
 
 效果如下：
 
-![](https://ww3.sinaimg.cn/small/74681984gw1f77lwgcd3ij20hs0iimxv)
+![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f77lwgcd3ij20hs0iimxv)
 
 首先根据 View 的大小和背景色，生成一张图片，生成图片的方法如下：
 
