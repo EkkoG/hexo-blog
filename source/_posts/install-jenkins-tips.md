@@ -146,7 +146,7 @@ Check console output at $BUILD_URL to view the results.
 
 这里之所以用 <br> 换行，是因为我默认的邮件格式是 html，如果是 plaintext，也可以使用 \n 换行。
 
-#### SMTP 的设置
+### SMTP 的设置
 
 邮件模板再好看，不能发还是白搭，我们需要一个方式给把邮件发出去，SMTP 可以做到，一般的邮件服务商都提供这种通用的发邮件方式，在 Jenkins 的系统配置里，添加 Extended E-mail Notification 配置，并设置 SMTP server，这里以 QQ 邮箱为例，QQ 邮件强制使用 SSL，这里注意一下
 
