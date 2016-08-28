@@ -47,7 +47,7 @@ pdnsd 可以找 OpenWrt 的资源 [点击下载](https://downloads.openwrt.org/b
 
 DNS2SOCKS 2.0版 没有现成的 ipk，这里我编译了一下，只编译了 rampis 和 ar71xx 两种型号 CPU 的适配版下载，
 
-rampis版下载: https://imciel.com/resource/dn2socks_2.0-20151206_ramips_24kec.ipk
+rampis版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk
 
 ar71xx 版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ar71xx.ipk
 
@@ -87,7 +87,7 @@ opkg update
 更新完成后，用 scp 命令把下载好的软件包传到路由器中，命令如下：
 
 ```
-scp shadowsock-libev-spec.ipk pdnsd.ipk DNS2SOCKS.ipk root@192.168.1.1:/tmp
+scp shadowsock-libev-spec.ipk pdnsd.ipk dns2socks.ipk root@192.168.1.1:/tmp
 ```
 
 以上 scp 命令会把当前目录下的三个 ipk 文件传到 ip 地址为192.168.1.1的路由器的 `/tmp` 目录下，注意替换自己的 ipk 名字和路径（可使用绝对路径），这里文件名只是举一个例子。
@@ -103,7 +103,7 @@ cd /tmp
 可以使用 `ls` 命令确认一下之前的三个 ipk 是否在于这个目录，如果不存在检查下上面执行 `scp` 命令的时候是不是哪里报错没看到，或者目录写错了，一切顺利的话，ipk 文件应该出现这个目录下，接下来安装这三个 ipk，命令如下：
 
 ```
-opkg install shadowsock-libev-spec.ipk pdnsd.ipk DNS2SOCKS.ipk
+opkg install shadowsock-libev-spec.ipk pdnsd.ipk dns2socks.ipk
 ```
 
 如果 `opkg update` 时正常，那么这个时候应该是会正常安装成功的。同样这里的文件名只是例子，请根据自己的情况自行替换文件名或者文件路径，如果当前文件夹下只有这三个 ipk 文件，并且想一次性安装这三个 ipk 文件，可以使用如下命令：
@@ -155,7 +155,7 @@ SERVICE_WRITE_PID=1
 SERVICE_DAEMONIZE=1
 
 start() {
-        service_start /usr/bin/DNS2SOCKS 127.0.0.1:LOCAL_SOCKS5_PORT 8.8.8.8:53 127.0.0.1:LOCAL_DNS2SOCKS_PORT -q
+        service_start /usr/bin/dns2socks 127.0.0.1:LOCAL_SOCKS5_PORT 8.8.8.8:53 127.0.0.1:LOCAL_DNS2SOCKS_PORT -q
 }
 
 stop() {
@@ -166,7 +166,7 @@ stop() {
 并设置可执行权限：
 
 ```
-chmod +X /etc/init.d/DNS2SOCKS
+chmod +X /etc/init.d/dns2socks
 ```
 
 注意脚本中的两个参数需要自己修改，`LOCAL_SOCKS5_PORT` 为自己的 SOCKS5 端口，上面设置 shadowsocks 的时候有设置这个端口，替换正确即可，`LOCAL_DNS2SOCKS_PORT` 为 DNS2SOCKS 监听的端口。
@@ -175,11 +175,11 @@ chmod +X /etc/init.d/DNS2SOCKS
 
 ```
 // 开启服务
-/etc/init.d/DNS2SOCKS start
+/etc/init.d/dns2socks start
 // 停止停止
-/etc/init.d/DNS2SOCKS stop
+/etc/init.d/dns2socks stop
 // 重启服务
-/etc/init.d/DNS2SOCKS restart
+/etc/init.d/dns2socks restart
 ```
 
 ### 设置 pdnsd 启动脚本
@@ -315,7 +315,7 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 
 ```
 /etc/init.d/shadowsocks start //启动 shadowsocks
-/etc/init.d/DNS2SOCKS start //启动 DNS2SOCKS 服务
+/etc/init.d/dns2socks start //启动 DNS2SOCKS 服务
 /etc/init.d/pdnsd start //启动 pdnsd 服务
 /etc/init.d/dnsmasq restart // 重启 dnsmasq 服务，使新的配置文件生效
 ```
