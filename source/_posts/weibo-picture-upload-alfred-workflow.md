@@ -23,7 +23,7 @@ date: 2016-07-17 14:51:45
 | 需要登录 | 否 | 否 | 是 |
 | API 稳定性 | 域名可能变 | 由于不是直播调用平台API，中间平台可能倒闭 | 公用上传接口可能停用 |
 
-### 想要的工作流
+## 想要的工作流
 
 我想要一个怎样的工作流呢？
 
@@ -37,7 +37,7 @@ date: 2016-07-17 14:51:45
 
 目前来说，最好的组合是，使用新浪的公用接口，读取剪切板图片并上传，生成 URL 复制到剪切板
 
-### 制作
+## 制作
 
 方案想好了，具体就需要查相关的资料和有没有什么资源可以利用。
 新浪的图片上传服务地址如下：http://picupload.service.weibo.com/interface/
@@ -58,23 +58,23 @@ date: 2016-07-17 14:51:45
 
 基本上整个流程的重点部分是有东西可以参考的，那么就动手吧。
 
-#### util 模块制作
+### util 模块制作
 
 参考 [markdown-img-upload](https://github.com/tiann/markdown-img-upload) 中的 util 模块，搞了一个类似的 util 模块，供整个 workflow 通知用户使用。
 
-#### 提示输入配置信息以及读取配置
+### 提示输入配置信息以及读取配置
 
 微博需要登录，这样就需要得到用户名密码，Alfred 通过交互输入得到参数没有查到方法，想来也比较麻烦，简单点可以像 markdown-img-upload 一样，上传前检查 cookie 状态，如果没有 cookie 说明没有登录，通过让用户编写简单的配置文件，在下次上传时读取配置文件中的用户名和密码这样的方式，进行模拟登录，同样参考 markdown-img-upload 中的提示用户填写配置文件的的逻辑和读取逻辑，得到了配置模块和读取用户信息的方法。
 
-#### 模拟登录微博
+### 模拟登录微博
 
 得到用户名和密码后，就可以登录了，hexo_weibo_image 中的微博登录是包含在上传过程中的，由于要做的这个 workflow 需要读取用户配置，这样就需要一个接口用来登录和检查登录状态，给 hexo_weibo_image 的微博模块添加了两个方法，一个检查登录状态，一个专门用来登录，得到了微博模块 [weibo.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/master/weibo.py)。
 
-#### 得到剪切板文件路径
+### 得到剪切板文件路径
 
 markdown-img-upload 中有一个 clipboard 模块，展示了怎么样读取剪切板中的文件，以及压缩文件，转换格式等，而上传到微博相对简单，只需要得到一个文件路径即可，上传中对图片数据 base64 编码即可上传，截取了 clipboard 模块中的将剪切板中的文件保存到临时目录并读取文件的逻辑，得到一个简化版的 clipboard 模块[clipboard.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/master/clipboard.py)，这里踩了一个坑，临时文件写入后会马上自动删除，如果只返回临时文件的路径，则在上传时文件已经不在了，所以这里需要把文件返回，需要上传时，取文件路径即可。
 
-#### 整合各模块
+### 整合各模块
 
 几个模块都准备好了，整合各模块就可以达成需求了。
 整个流程就是
@@ -87,14 +87,14 @@ markdown-img-upload 中有一个 clipboard 模块，展示了怎么样读取剪�
 最终得到 main 模块 [main.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/b4bcfd440641c19859a2903bd09405234d212810/main.py)
 
 
-### 问题来了
+## 问题来了
 这样一样，整个流程就走通了，这样得到 URL 后，仅将 URL 复制到了剪切板，能不能复制一个 Markdown 格式的字符串并自动填入图片链接呢？那样岂不是更省事了，目前的流程复制操作包含在了上传完成操作里，没办法区分，那么就把上传独立出来，上传模块负责登录状态检查和上传，得到 URL 后返回 URL，失败则返回空，最终得到一个上传模块 [upload.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/master/upload.py)
 
 想得到普通的只有图片地址时，调用 [get_image_url.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/master/get_image_url.py) 模块，会将 URL 复制到剪切板。
 
 如果想得到 Markdown 格式的，则调用 [get_markdown.py](https://github.com/cielpy/WeiboPictureWorkflow/blob/master/get_markdown.py)，会将 一个 Markdown 格式的字符串复制到剪切板。
 
-### 写在后面
+## 写在后面
 
 到这里 workflow 就制作完毕了，我设置了两个快捷键。
 ![](https://ww3.sinaimg.cn/large/74681984gw1f5xbkf7f9oj20nh0geabb
@@ -106,10 +106,10 @@ Ctrl + Command + V 只复制图片 URL，Ctrl + Command + B 复制 Markdown 格�
 
 代码见 https://github.com/cielpy/WeiboPictureWorkflow
 
-### 鸣谢
+## 鸣谢
 项目中很多源码取自 https://github.com/tiann/markdown-img-upload 和 https://github.com/trytofix/hexo_weibo_image ，在这里非常感谢两位作者的付出。
 
-### 参考资料
+## 参考资料
 * [WeiboPicBed](https://github.com/Suxiaogang/WeiboPicBed)
 * [markdown-img-upload](https://github.com/tiann/markdown-img-upload)
 * [简化 markdown 写作中的贴图流程](http://weishu.me/2015/10/16/simplify-the-img-upload-in-markdown/)

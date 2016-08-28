@@ -36,9 +36,9 @@ date: 2016-05-09 23:01:36
 
 还是说回反向代理。
 
-### 安装 Nginx，添加虚拟主机，配置反向代理
+## 安装 Nginx，添加虚拟主机，配置反向代理
 环境：Ubuntu 16.04
-#### 安装 Nginx
+### 安装 Nginx
 
 安装最新稳定版的 Nginx 可以通过添加 PPA 的方式，命令如下
 
@@ -47,7 +47,7 @@ add-apt-repository ppa:nginx/stable
 apt-get update
 apt-get install nginx
 ```
-#### 添加虚拟主机
+### 添加虚拟主机
 安装比较新的 Nginx 版本的话，可以直接在 /etc/nginx/conf.d/ 目录下新建一个 .conf 配置文件就可以，Nginx 自动包含这个文件夹下的 .conf 文件，这里新建一个 domain.com.conf 文件，内容如下
 
 ```
@@ -61,7 +61,7 @@ apt-get install nginx
 
 在你使用的域名 DNS 解析服务提供商（DNSPod 等）处，添加一条 A 记录，指向 VPS 的 IP，配置完成后，稍微等待一下 DNS 记录生效，打开 domain.com ，可以看到 **Welcome to nginx!**，说明虚拟主机添加成功。
 
-#### 配置反向代理
+### 配置反向代理
 
 配置反向代理只需要修改 domain.conf 文件，添加一条 `proxy_pass` 规则就可以，修改完成后如下
 
@@ -96,9 +96,9 @@ apt-get install nginx
 
 到这里反向代理就配置完毕了。
 
-### 配置 HTTPS
+## 配置 HTTPS
 
-#### 申请证书
+### 申请证书
 
 Let's Encrypt 将申请证书配置证书自动化，开源免费，好东西。社区有开发者制作了更简单的脚本，可以一键生成证书。
 
@@ -146,7 +146,7 @@ server {
 ```
 确保 `/var/www/letsencryp` 目录有写入权限，然后就可以运行脚本 `./letsencrypt.sh`，权限没问题的话，证书应该可以正常生成，生成的证书在 cert/domain.com/ 下。
 
-#### 配置 HTTPS
+### 配置 HTTPS
 
 修改 domain.com.conf 配置文件，增加一个监听 443端口的 server 配置，配置完成后 domain.com.conf 内容如下
 
@@ -194,7 +194,7 @@ server {
 
 配置完成后，再次运行 `service nginx reload` 命令，加载刚刚修改的配置，完成后可以试着访问 https://domain.com 看看运行结果，可以看到 https://yourgithubname.github.io 的内容的话，就是一切正常。配置完成。
 
-### 写在后面
+## 写在后面
 
 经过这些折腾，就开启了博客网站的 HTTPS 访问，最后一个痛点解决了。
 
@@ -205,7 +205,7 @@ server {
 写的很长，有点啰嗦，仅供大写参考吧。明白怎么做跟讲清楚怎么做还是有不小的差距，还要继续加油:)
 
 
-### 参考资料
+## 参考资料
 
 * [静态博客高可用部署实践](静态博客高可用部署实践)
 * [Nginx 虚拟主机 VirtualHost 配置](http://www.neoease.com/nginx-virtual-host/)
@@ -216,3 +216,7 @@ server {
 * [nginx反向代理配置](http://www.nginx.cn/927.html)
 * [Nginx配置多域名反向代理](https://hustlibraco.github.io/2015/12/03/nginx%E9%85%8D%E7%BD%AE%E5%A4%9A%E5%9F%9F%E5%90%8D%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/)
 * [How To Create an SSL Certificate on Nginx for Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-create-an-ssl-certificate-on-nginx-for-ubuntu-14-04)
+
+-- EOF --
+
+

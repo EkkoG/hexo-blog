@@ -25,7 +25,7 @@ git@github.com:git/git.git
 
 两种方式设置代理的方法是不同的，下面一一介绍。
 
-### 设置 Git HTTP 代理
+## 设置 Git HTTP 代理
 
 如果你手上的代理是 socks5 代理，如各平台的 `Shadowsocks` 客户端都提供一个本地的 socks5 代理，那么你可以这样设置，让 Git 通过 HTTP 链接 clone 代码时走 socks5 代理
 
@@ -59,7 +59,7 @@ git config --global https.proxy "http://127.0.0.1:6667"
 
 如果端口有变动也可以直接在这里修改。
 
-### 设置 Git SSH 代理
+## 设置 Git SSH 代理
 
 还有一种情况，我们通过 SSH 方法 clone 代码，提交代码，因为这样不用输入密码，通常我们会在自己的常用电脑上这么做。上面设置的 HTTP 代理对这种方式 clone 代码是没有影响的，也就是并不会加速，SSH 的代理需要单独设置，其实这个跟 Git 的关系已经不是很大，我们需要改的，是SSH 的配置。在用户目录下建立如下文件 `~/.ssh/config`，对 GitHub 的域名做单独的处理
 
@@ -80,16 +80,18 @@ Host github.com
 
 经过上面的设置，现在不管是用什么方式 clone 代码，都会走代理了，这里还是强调一下，代理要速度快才会有加速效果，如果代理一般或者很慢，可能还不如不走代理。
 
-### 写在后面
+## 写在后面
 
 希望这些配置可以改善我们天朝程序员的生活质量吧:)
 
 --EOF--
 
-### 参考资料
+## 参考资料
 * [Tutorial: how to use git through a proxy](https://cms-sw.github.io/tutorial-proxy.html)
 * [Connecting to host by SSH client in Linux by proxy](https://unix.stackexchange.com/questions/68826/connecting-to-host-by-ssh-client-in-linux-by-proxy)
 * [SSH over SSL, episode 2: replacing proxytunnel with socat](http://blog.chmd.fr/ssh-over-ssl-episode-2-replacing-proxytunnel-with-socat.html)
 * [配置git使用proxy](http://leolovenet.com/blog/2014/05/28/git-and-proxy/)
 * [Using SSH over the HTTPS port](https://help.github.com/articles/using-ssh-over-the-https-port/)
+
+-- EOF --
 

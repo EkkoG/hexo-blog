@@ -38,7 +38,9 @@ UITableView 会在再次显示到屏幕上时将已选中的 cell 选中状态�
 
 --EOF--
 
-### 参考资料
+## 参考资料
 1. http://stackoverflow.com/a/25128477
 2. http://stackoverflow.com/a/30736675
+
+-- EOF --
 

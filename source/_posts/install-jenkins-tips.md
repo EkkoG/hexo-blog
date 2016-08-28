@@ -14,7 +14,7 @@ date: 2016-08-27 22:50:33
 
 注：下文中以安装 Jenkins LTS 2.7.2 为例
 
-### 选择哪种安装方式安装？
+## 选择哪种安装方式安装？
 
 Jenkins 的安装方式有几种：
 
@@ -67,13 +67,13 @@ brew services start jenkins-lts
 
 https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html
 
-### 设置 Git 仓库
+## 设置 Git 仓库
 
 如果我们使用了 pkg 安装，那么要解决的一个问题就是对 Git 仓库的访问权限，在 Jenkins 中可以配置 Git 的账户密码或者 ssh key，但是如果我们有一个打包脚本，脚本中也有拉取代码操作，我们想可以手动打包，也可以使用 Jenkins 定期运行打包呢？如果打包脚本中有 git pull 之类的操作，会提示有权限错误，这里是不很懂在 Jenkins 页面中配置的 ssh key 的运作方式，按理来说如果是配置 Shared 用户的 ssh key 的话，理应有同样的访问权限的。
 
 我没有继续在 Shared 用户下搞，安装在了当前用户下，当前用户有权限访问 Git 仓库的话，Jenkins 是不用配置权限相关的东西的（ssh key 或者账号密码），同样，打包脚本一般在当前用户下运行，也不会有访问权限问题。
 
-### 设置构建周期
+## 设置构建周期
 
 构建周期一般有两种设置方式，如果需要定期检查代码并构建，那么可以设置 Poll SCM 为
 
@@ -87,7 +87,7 @@ https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPag
 
 这样就是在每天晚上 21 点执行构建。
 
-### 打包签名问题
+## 打包签名问题
 
 之前的文章中，构建脚本使用的 xctool，xctool 正常情况下可以编译，执行测试，Analyze 等，有一问题 xctool 解决起来比较麻烦，就是签名问题，因为编译也必须保证签名的正确，而 xctool 不能指定证书和 Provisioning File，因为我的环境中已经使用 Fastlane 打包，Fastlane 可以顺便解决证书和 Provisioning File 问题，参见 https://codesigning.guide/ ，嗯。。。其实我这里还没用上这个高级玩意，只是在部署 Jenkins 的那台电脑上已经部署好了发布证书，Fastlane 直接导出一个 Release 包就可以了，可以导出代码就是正常的，验证了代码的可用性，基本的可用性。
 
@@ -101,7 +101,7 @@ https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPag
     )
 ```
 
-### RVM 和 Fastlane
+## RVM 和 Fastlane
 
 如果使用了 RVM 安装 ruby，并使用 RVM 安装的 ruby 安装了 fastlane，在 Jenkins 环境中，RVM 没有激活，所以也找不到 fastlane，进而也打不了包，所以要解决一下这个环境问题。在构建脚本中加上这几行，用来激活 RVM
 
@@ -121,7 +121,7 @@ type rvm | head -n 1
 rvm is a shell function from /Users/xx/.rvm/scripts/cli
 ```
 
-### 设置邮件模板
+## 设置邮件模板
 
 邮件模板可以在 Jenkins 的系统配置里设置默认的，一般我们在不同的情况下发不同的邮件，比如构建失败时，会 log 发给开发者（这里会自动提取 git 提交者设置的邮件），并提示开发者构建失败了，请立即修改，成功了就不必提示。如果需要发测试包，则需要在构建成功后，发送给测试都，并附上更新日志和下载地址，如果打包失败同需要提示开发者。这些操作可以通过定义不同的触发器，在 Jenkins 项目中的 Post-build Actions 中，给不同的 triggers 设置不同的邮件模板，如失败时，给开发者的模板：
 
@@ -146,7 +146,7 @@ Check console output at $BUILD_URL to view the results.
 
 这里之所以用 <br> 换行，是因为我默认的邮件格式是 html，如果是 plaintext，也可以使用 \n 换行。
 
-### SMTP 的设置
+## SMTP 的设置
 
 邮件模板再好看，不能发还是白搭，我们需要一个方式给把邮件发出去，SMTP 可以做到，一般的邮件服务商都提供这种通用的发邮件方式，在 Jenkins 的系统配置里，添加 Extended E-mail Notification 配置，并设置 SMTP server，这里以 QQ 邮箱为例，QQ 邮件强制使用 SSL，这里注意一下
 
@@ -162,11 +162,11 @@ Check console output at $BUILD_URL to view the results.
 
 在我的网络环境中，有一个奇怪的问题是我设置的 QQ 邮箱服务器提示连不上，但是我用 [Python 脚本发邮件](https://jasonhzy.github.io/2016/06/15/python-email/) 可以发送，同样试了企业邮箱也不行，换成我自定义域名的 yandex 邮件才可以，没有做其他修改。
 
-### 写在后面
+## 写在后面
 
 又到了写在后面时间，本文记录了一些安装 Jenkins 的时候的一些比较坑的地方，以及在一些场景下 Jenkins 的应用，希望对有类似需求的朋友有所帮助。
 
-### 参考资料
+## 参考资料
 
 * [launchctl manual](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html)
 * [Using RVM with Jenkins](https://mattconnolly.wordpress.com/2012/01/29/using-rvm-with-jenkins/)

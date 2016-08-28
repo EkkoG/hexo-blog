@@ -11,7 +11,7 @@ date: 2016-08-27 22:51:50
 
 iOS 中时常需要把某个 View 圆角处理，这样界面看起来更圆融，开发中用到过很多种方式做圆角处理，这里就总结一下。
 
-### 最简单的
+## 最简单的
 
 最简单的方式就是设置每个 View 自带的 layer 的属性即可
 
@@ -50,7 +50,7 @@ view.clipsToBounds = YES;
 
 ![](https://ww3.sinaimg.cn/bmiddle/74681984gw1f7781hpzf7j20dm0b4mxd)
 
-### 设置 mask layer
+## 设置 mask layer
 
 使用贝赛尔曲线，并根据其路径，得到一个「遮罩 layer」，将其设置为 View 自带 layer 的 mask，盖掉其他部分，剩余中间的部分。也可以达到圆角效果。
 
@@ -152,7 +152,7 @@ UIView+CPYExtension.m
 
 不好的是，上一种方式的缺点，这个方式也都有。:(
 
-### 生成圆角背景图片方式
+## 生成圆角背景图片方式
 
 ```
     CGFloat w = 200;
@@ -248,7 +248,7 @@ UIView+CPYExtension.m
 
 这种方法的好处是不会触发离屏渲染，生成图片和圆角都由 CPU 处理，且边框清晰，没有黑边，唯一的缺点应该就是不能处理子 View，在四角处的子 View 不会被「切」掉，毕竟是一个圆角背景造成的圆角假象，对子 View 没有什么影响力。
 
-### 使用遮罩层
+## 使用遮罩层
 
 这个遮罩层不是上面提遮罩 layer，是一张你想要保留的形状的一张图片，比如想要圆角图片，可以让设计师做一张这样图片：
 
@@ -260,7 +260,8 @@ UIView+CPYExtension.m
 
 也可以跑一下这个 demo 看看怎么对 UITableView 优化的。
 
-### 写在后面
+## 写在后面
+
 在 [离屏渲染优化](http://www.jianshu.com/p/ca51c9d3575b) （建议好好看看篇文章）中，seedante 对各种圆角方案也有总结对比，最终得到这样一个结果：
 
 > 任何时候优先考虑避免触发离屏渲染，无法避免时优化方案有两种：
@@ -270,11 +271,13 @@ UIView+CPYExtension.m
 
 总的来说，圆角方案需要根据情况具体选择用哪种方式。
 
-### 参考资料
+## 参考资料
 * [How is the relation between UIView's clipsToBounds and CALayer's masksToBounds?](https://stackoverflow.com/questions/1177775/how-is-the-relation-between-uiviews-clipstobounds-and-calayers-maskstobounds)
 * [iOS 高效添加圆角效果实战讲解](http://www.jianshu.com/p/f970872fdc22)
 * [离屏渲染优化详解：实例示范+性能测试](http://www.jianshu.com/p/ca51c9d3575b)
 * [VVeboTableViewDemo](https://github.com/johnil/VVeboTableViewDemo)
 
 
+
+-- EOF --
 

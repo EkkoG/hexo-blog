@@ -12,7 +12,7 @@ iOS 开发中我们经常用 CocoaPods 来安装第三方库，CocoaPods 可以�
 
 下文中的 CocoaPods 使用的是 1.0.0 版本
 
-### 创建样板工程
+## 创建样板工程
 
 CocoaPods 提供了工具可以创建一个样板工程，在终端中 cd 到一个方便操作的目录，运行如下命令：
 
@@ -41,7 +41,7 @@ CoccoaPods 会问几个问题
 
 这样我们就得到一个样板工程，完成创建后 CocoaPods 会打开样例工程的 `.xcworkspace` 文件。
 
-### 把组件相关的类放到工程中
+## 把组件相关的类放到工程中
 
 把组件相关的类放到 `CPYPrivatePodsDemo/Classes` 目录中，这是里之所以要放到这个目录下是因为 Example 工程是中生成 Podfile 文件中指定了这个目录是源文件地址，我们按照默认的走就好。这里我们创建了一个测试文件和一个头文件，导入了这个测试文件，共三个文件放到 `Classes` 文件夹，如下：
 
@@ -61,7 +61,7 @@ CocoaPods 会更新 pod，这里直接从之前的 `Classes` 文件夹中获取�
 
 嗯。。。好像编译通过了，这样就完成一半了，剩下的就是把这个 pod 发布，放到一个大家都可以访问的地方。
 
-### 发布组件到 Git 仓库中
+## 发布组件到 Git 仓库中
 
 上面完成后，我们就可以把创建出来的这个模板创建放到远程的 Git 仓库中，这里我们在 Coding.net 上创建一个仓库，然后把代码 push 到远程
 
@@ -78,7 +78,7 @@ git tag -m "first release" 0.1.0
 git push --tags     #推送tag到远端仓库
 ```
 
-### 编辑 podspec 文件
+## 编辑 podspec 文件
 
 接下来我们要编辑 podspec 文件，在样板工程的根目录下有一个 CPYPrivatePodsDemo.podspec 文件，用文本编辑器打开，需要 summary, homepage 和 source 字段，其中 source 字段是刚刚把源码上传到的 Git 仓库地址，需要用 HTTPS 链接，source_files 字段和默认的一样，不用修改，因为我们之前就是把源文件放到这个目录的。
 
@@ -128,7 +128,7 @@ end
 
 ```
 
-### 本地测试 podspec 文件是否可用
+## 本地测试 podspec 文件是否可用
 
 用 pod 提供的工具检查 podspec 文件是否合法，命令如下：
 
@@ -154,7 +154,7 @@ end
 
 ![](https://ww3.sinaimg.cn/large/74681984gw1f66n0ipzjfj20qb04dmyw)
 
-### 发布 podspec
+## 发布 podspec
 
 接下来剩最后一步，这们指定文件绝对路径是不科学的，我们不可能每次更新文件都修改一个 podspec 文件再 `pod install` 吧，方法就是发布 podspec 文件到远程，既然我们要做私有的 pod，就不能放在公共的仓库里，这里我们新建一个仓库，专门放我们的私有 podspec 文件。
 
@@ -176,7 +176,7 @@ pod repo add private https://git.coding.net/cielpy/spec.git
 
 有了！
 
-### 最后一步
+## 最后一步
 
 剩最后一步了，替换掉原来测试工程中的 Podfile 中指定的 podspec 路径，改成如下的正常的方式：
 
@@ -199,7 +199,7 @@ end
 
 因为我们的仓库都是私有的，所以在哪里需要安装的话，需要有对这两个私有仓库的访问权限就好，发布公有的类似，只是发布到了官方的 podspec 仓库。
 
-### 参考资料
+## 参考资料
 [使用 Cocoapods 创建私有 podspec](http://blog.wtlucky.com/blog/2015/02/26/create-private-podspec/)
 
 --EOF--

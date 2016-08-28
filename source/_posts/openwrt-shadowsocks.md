@@ -16,7 +16,7 @@ date: 2016-01-22 18:28:22
 
 这里介绍下我现在在用的方案。
 
-### 方案介绍
+## 方案介绍
 
 本文主要使用 shadowsocks-libev 提供的透明代理功能，将 shadowsocks-libev 部署于路由器，使透明代理运行于服务器，部署完成后，达到连接该路由器的设备都可以自动翻墙的效果。
 
@@ -27,13 +27,13 @@ shadowsocks-libev 主要根据 IP 来判断是否需要走代理，可以设置�
 方案的大概原理介绍完了，接下来就开始吧。
 
 
-### 硬件准备
+## 硬件准备
 
 可以刷 OpenWrt 的路由器一台
 
 我目前在用的路由器是 Netgear WNDR 4300， 配有 16M RAM 和 128M ROM，双频，电商打折的时候300块左右，本人已经用了一年多，还是比较稳定的。
 
-### 软件准备
+## 软件准备
 
 1. [shadowsocks-libev]( https://github.com/shadowsocks/openwrt-shadowsocks) 提供本地 SOCKS5代理和本地透明代理
 2. DNS2SOCKS [https://sourceforge.net/projects/DNS2SOCKS/](http://sourceforge.net/projects/DNS2SOCKS/) 通过 SOCKS5 代理请求 DNS
@@ -51,7 +51,7 @@ rampis版下载: https://imciel.com/resource/DNS2SOCKS_2.0-20151206_ramips_24kec
 
 ar71xx 版下载: https://imciel.com/resource/DNS2SOCKS_2.0-20151206_ar71xx.ipk
 
-### 给路由器刷 OpenWrt 
+## 给路由器刷 OpenWrt 
 
 WNDR 4300刷 OpenWrt 相对简单，不需要解锁 U-boot，这里假设是新路由器，也就是目前的固件是原厂的，那么刷机的主要步骤如下：
 
@@ -60,9 +60,9 @@ WNDR 4300刷 OpenWrt 相对简单，不需要解锁 U-boot，这里假设是新�
 
 更详细的步骤和注意方式请参考这篇文章：http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html
 
-### 软件安装
+## 软件安装
 
-#### ssh 连接路由器
+### ssh 连接路由器
 
 OpenWrt 刷成功后，需要先登录后台，配置网络（拔号、静态IP等等），使路由器正常访问网络，然后用 ssh 登录后台，Mac 或者 Linux 系统可以在终端里执行 ssh 命令来登录，如：
 
@@ -76,7 +76,7 @@ Windows 建议用 putty http://www.putty.org/
 
 ![](https://ww3.sinaimg.cn/large/74681984gw1f79g740emcj20zo0jqgsn)
 
-#### 传输 ipk 文件到路由器并安装
+### 传输 ipk 文件到路由器并安装
 
 首先需要更新软件源，命令如下：
 
@@ -118,9 +118,9 @@ DNS2SOCKS 需要一个 SOCKS5 代理，其原理就是将 DNS 解析请求通过
 
 至此软件安装部分就完成了，接下来需要配置各种软件，使它们配合起来工作。
 
-### 软件配置
+## 软件配置
 
-#### 配置 shadowsocks 账号和本地 SOCKS5 代理
+### 配置 shadowsocks 账号和本地 SOCKS5 代理
 
 登录路由器后台，服务-影梭，切到服务器管理选项卡，填上自己的 shadowsocks账号即可，可以配置多个服务器，方便一个挂了的时候切换到另一个:)
 
@@ -131,7 +131,7 @@ DNS2SOCKS 需要一个 SOCKS5 代理，其原理就是将 DNS 解析请求通过
 ![](https://ww3.sinaimg.cn/large/74681984gw1f79icll52kj20ei0lf0u7)
 
 
-#### 配置 DNS2SOCKS 启动脚本
+### 配置 DNS2SOCKS 启动脚本
 
 DNS2SOCKS 安装完成只有一个可执行文件，我们可以把 DNS2SOCKS 改造成像普通的 OpenWrt 软件那样，使用 `/etc/init.d/` 下的脚本 `start`, `stop`, `restart`，方法如下，在 `/etc/init.d/` 目录下新建文件 DNS2SOCKS，内容如下：
 
@@ -173,7 +173,7 @@ chmod +X /etc/init.d/DNS2SOCKS
 /etc/init.d/DNS2SOCKS restart
 ```
 
-#### 设置 pdnsd 启动脚本
+### 设置 pdnsd 启动脚本
 
 同样的问题，pdnsd 也是没有启动脚本的，用同样的方法，在 `/etc/init.d/` 目录下新建文件 `pdnsd`，内容如下：
 
@@ -267,7 +267,7 @@ chmod +X /etc/init.d/pdnsd
 
 这里提一下 pdnsd 是作为一个转发器存在的，这里设置了 DNS2SOCKS 的 DNS 为 pdnsd 的上游 DNS，如果觉得 DNS2SOCKS 不好，想换成如 Google Public DNS 或者 OpenDNS 也是可以的，只需要更改一下启动脚本中 server 块的 IP 和端口，Google Public DNS 只有 53 端口提供，可以省略端口，OpenDNS 提供 5353 端口，非 53 端口 DNS 需要显式指定端口。另外，使用国外的 DNS 还是会被污染，需要指定 `global` 设置中的 `query_method` 为 `tcponly`，使用　TCP 方式请求 DNS 还是不被污染的。
 
-#### 配置 dnsmasq-china-list 并设置 dnsmasq
+### 配置 dnsmasq-china-list 并设置 dnsmasq
 在 dnsmasq-china-list 主页下载 ZIP 并解压，将里面的 `.conf` 文件上传到路由器的 /etc/dnsmasq.d/ 目录，若无这个目录，需要新建一个。这些配置文件的主要作用是在文件中指定一些常用的域名使用后面的 DNS 来解析，可以看到里面都类似这样的规则：
 
 ```
@@ -302,7 +302,7 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 
 至此配置完毕。
 
-### 运行软件
+## 运行软件
 
 ```
 /etc/init.d/shadowsocks start //启动 shadowsocks
@@ -311,21 +311,24 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 /etc/init.d/dnsmasq restart // 重启 dnsmasq 服务，使新的配置文件生效
 ```
 
-### 完结
+## 完结
 
 到这里就完成了整个方案的配置，shadowsocks-libev 提供了透明代理，并提供 SOCKS5 代理 给 DNS2SOCKS 使用，路由器在收到 DNS 解析请求后转发给 pdnsd，pdnsd 向 DNS2SOCKS 请求 DNS，得到结果后缓存起来，设置一引起常用的域名走国内的 DNS 解析，这样一来，整个方案就走通了。
 
-### 感谢
+## 感谢
+
 感谢各位开源项目维护者的辛苦劳动，有你们，才能让我们方便的浏览互联网上的任何信息。
 
-### 修订记录
+## 修订记录
 
 1. 2016 年 8 月 28 日，基于 shadowsocks-libev 2.4.8 重新修订
 
-### 参考
+## 参考
 1. [Shadowsocks + ChnRoute 实现 OpenWRT 路由器自动翻墙](https://cokebar.info/archives/664)
 2. [WNDR4300 折腾 openwrt 记](http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html)
 3. [科学上网之五----DNS2SOCKS](http://www.bubuko.com/infodetail-624247.html)
 4. [加速OpenWRT路由器的DNS解析 – pdnsd代替dnsmasq](https://cokebar.info/archives/734)
+
+-- EOF --
 
 
