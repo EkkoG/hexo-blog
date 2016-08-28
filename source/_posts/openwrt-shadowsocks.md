@@ -130,6 +130,15 @@ DNS2SOCKS 需要一个 SOCKS5 代理，其原理就是将 DNS 解析请求通过
 
 ![](https://ww3.sinaimg.cn/large/74681984gw1f79icll52kj20ei0lf0u7)
 
+如果透明代理的 UDP 服务器处提示 tproxy 模块缺失，则需要安装一下 tproxy 模块，命令如下：
+
+```
+opkg update
+opkg install iptables-mod-tproxy
+```
+
+可能需要重启路由器才能生效。
+
 
 ### 配置 DNS2SOCKS 启动脚本
 
