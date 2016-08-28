@@ -36,10 +36,10 @@ shadowsocks-libev 主要根据 IP 来判断是否需要走代理，可以设置�
 ## 软件准备
 
 1. [shadowsocks-libev]( https://github.com/shadowsocks/openwrt-shadowsocks) 提供本地 SOCKS5代理和本地透明代理
-2. DNS2SOCKS [https://sourceforge.net/projects/DNS2SOCKS/](http://sourceforge.net/projects/DNS2SOCKS/) 通过 SOCKS5 代理请求 DNS
-3. pdnsd [http://members.home.nl/p.a.rombouts/pdnsd/](http://members.home.nl/p.a.rombouts/pdnsd/) 转发 DNS 请求给上游 DNS，并修改 TTL ，提供缓存功能，这里上游 DNS 是 DNS2SOCKS 提供的 DNS
-4. dnsmasq-china-list: [https://github.com/felixonmars/dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list) 收集国内常见域名，走国内 DNS 服务器解析，其他走 DNS2SOCKS 解析
-5. shadowsocks-luci [http://sourceforge.net/projects/openwrt-dist/files/luci-app/shadowsocks-spec/](http://sourceforge.net/projects/openwrt-dist/files/luci-app/shadowsocks-spec/) 提供 Luci 界面，方便配置
+2. [DNS2SOCKS](http://sourceforge.net/projects/DNS2SOCKS/) 通过 SOCKS5 代理请求 DNS
+3. [pdnsd](http://members.home.nl/p.a.rombouts/pdnsd/) 转发 DNS 请求给上游 DNS，并修改 TTL ，提供缓存功能，这里上游 DNS 是 DNS2SOCKS 提供的 DNS
+4. [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list) 收集国内常见域名，走国内 DNS 服务器解析，其他走 DNS2SOCKS 解析
+5. [luci-app-shadowsocks](https://github.com/shadowsocks/luci-app-shadowsocks) 提供 Luci 界面，方便配置
 
 本文中 shadowsocks-libev 使用 2.4.8 版本，shadowsocks-libev 项目主页中提供的预编译 ipk 下载地址选择下载。
 
@@ -338,6 +338,7 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 2. [WNDR4300 折腾 openwrt 记](http://dlmao.com/wndr4300-%E6%8A%98%E8%85%BE-openwrt-%E8%AE%B0.html)
 3. [科学上网之五----DNS2SOCKS](http://www.bubuko.com/infodetail-624247.html)
 4. [加速OpenWRT路由器的DNS解析 – pdnsd代替dnsmasq](https://cokebar.info/archives/734)
+5. [每天一个linux命令（60）：scp命令](http://www.cnblogs.com/peida/archive/2013/03/15/2960802.html)
 
 -- EOF --
 
