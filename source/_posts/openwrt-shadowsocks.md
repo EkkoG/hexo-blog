@@ -47,7 +47,7 @@ pdnsd 可以找 OpenWrt 的资源 [点击下载](https://downloads.openwrt.org/b
 
 DNS2SOCKS 2.0版 没有现成的 ipk，这里我编译了一下，只编译了 rampis 和 ar71xx 两种型号 CPU 的适配版下载，
 
-rampis版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk
+rampis 版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ramips_24kec.ipk
 
 ar71xx 版下载: https://imciel.com/resource/dns2socks_2.0-20151206_ar71xx.ipk
 
