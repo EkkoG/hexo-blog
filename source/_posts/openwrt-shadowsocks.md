@@ -322,7 +322,7 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 
 ## 完结
 
-到这里就完成了整个方案的配置，shadowsocks-libev 提供了透明代理，并提供 SOCKS5 代理 给 DNS2SOCKS 使用，路由器在收到 DNS 解析请求后转发给 pdnsd，pdnsd 向 DNS2SOCKS 请求 DNS，得到结果后缓存起来，设置一引起常用的域名走国内的 DNS 解析，这样一来，整个方案就走通了。
+到这里就完成了整个方案的配置，shadowsocks-libev 提供了透明代理，并提供 SOCKS5 代理 给 DNS2SOCKS 使用，路由器在收到 DNS 解析请求后转发给 pdnsd，pdnsd 向 DNS2SOCKS 请求 DNS，得到结果后缓存起来，也避免了 DNS 污染，再设置一些常用的域名走国内的 DNS 解析，这样一来，整个方案就走通了。
 
 ## 感谢
 
