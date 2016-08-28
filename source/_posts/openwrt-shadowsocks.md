@@ -330,7 +330,8 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 
 ## 修订记录
 
-1. 2016 年 8 月 28 日，基于 shadowsocks-libev 2.4.8 重新修订
+1. 2016 年 1 月 22日，基于 openwrt-shadowsocks-liebev 2.3.x 第一次整理
+2. 2016 年 8 月 28 日，基于 openwrt-shadowsocks-libev 2.4.8 重新修订
 
 ## 参考
 1. [Shadowsocks + ChnRoute 实现 OpenWRT 路由器自动翻墙](https://cokebar.info/archives/664)
