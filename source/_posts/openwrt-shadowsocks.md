@@ -1,5 +1,5 @@
 ---
-title: 我的路由器自动翻墙方案 shadowsocks+DNS2SOCKS+pdnsd+dnsmasq
+title: 我的路由器自动翻墙方案 shadowsocks+dns2socks+pdnsd+dnsmasq
 tags:      
     - 翻墙
     - GFW
@@ -65,7 +65,11 @@ WNDR 4300刷 OpenWrt 相对简单，不需要解锁 U-boot，这里假设是新�
 #### ssh 连接路由器
 
 OpenWrt 刷成功后，需要先登录后台，配置网络（拔号、静态IP等等），使路由器正常访问网络，然后用 ssh 登录后台，Mac 或者 Linux 系统可以在终端里执行 ssh 命令来登录，如：
-`ssh root@192.168.1.1`
+
+```
+ssh root@192.168.1.1
+```
+
 Windows 建议用 putty http://www.putty.org/
 
 出现类似如下界面就是登录成功了
@@ -110,7 +114,7 @@ opkg install *.ipk
 
 之前之所以使用 `opkg update` 命令更新软件源，是因为 shadowsocks-libev 还有一些依赖需要安装，这些依赖可以在官方维护的软件源中找到，故使用 `opkg update` 更新一下软件源，安装 shadowsocks-libev 的时候可以正确安装依赖。
 
-DNS2SOCKS 需要一个 SOCKS5 代理，其原理就是将 DNS 解析请求通过 socks 代理解析，这里 SOCKS5 代理用 shadowsocks-libev 提供，之前版本中，shadowsocks-libev-spec 不提供本地 SOCKS5 代理，所以需要另外安装一个 shadowsocks-libev，现在最新版本的已经同时提供透明代理和 SOCKS5 代理，省心多了。
+DNS2SOCKS 需要一个 SOCKS5 代理，其原理就是将 DNS 解析请求通过 SOCSK5 代理解析，这里 SOCKS5 代理用 shadowsocks-libev 提供，之前版本中，shadowsocks-libev-spec 不提供本地 SOCKS5 代理，所以需要另外安装一个 shadowsocks-libev，现在最新版本的已经同时提供透明代理和 SOCKS5 代理，省心多了。
 
 至此软件安装部分就完成了，接下来需要配置各种软件，使它们配合起来工作。
 
@@ -259,7 +263,9 @@ EOF
 chmod +X /etc/init.d/pdnsd
 ```
 
-注意 pdnsd 启动脚本中的两个变量的配置，`LOCAL_DNS_PORT` 为 DNS2SOCKS 的端口，也就是上文中设置 DNS2SOCKS 时设置的 `LOCAL_DNS2SOCKS_PORT`，`PDNSD_LOCAL_PORT` 为 pdnsd 监听的端口，实际上我们最终使用的是这个端口的 DNS，没有直接使用 DNS2SOCKS 提供的 DNS，因为是 pdnsd 可以缓存 DNS。
+注意 pdnsd 启动脚本中的两个变量的配置，`LOCAL_DNS_PORT` 为 DNS2SOCKS 的端口，也就是上文中设置 DNS2SOCKS 时设置的 `LOCAL_DNS2SOCKS_PORT`，`PDNSD_LOCAL_PORT` 为 pdnsd 监听的端口，实际上我们最终使用的是这个端口的 DNS，没有直接使用 DNS2SOCKS 提供的 DNS，因为 pdnsd 可以缓存 DNS。
+
+这里提一下 pdnsd 是作为一个转发器存在的，这里设置了 DNS2SOCKS 的 DNS 为 pdnsd 的上游 DNS，如果觉得 DNS2SOCKS 不好，想换成如 Google Public DNS 或者 OpenDNS 也是可以的，只需要更改一下启动脚本中 server 块的 IP 和端口，Google Public DNS 只有 53 端口提供，可以省略端口，OpenDNS 提供 5353 端口，非 53 端口 DNS 需要显式指定端口。另外，使用国外的 DNS 还是会被污染，需要指定 `global` 设置中的 `query_method` 为 `tcponly`，使用　TCP 方式请求 DNS 还是不被污染的。
 
 #### 配置 dnsmasq-china-list 并设置 dnsmasq
 在 dnsmasq-china-list 主页下载 ZIP 并解压，将里面的 `.conf` 文件上传到路由器的 /etc/dnsmasq.d/ 目录，若无这个目录，需要新建一个。这些配置文件的主要作用是在文件中指定一些常用的域名使用后面的 DNS 来解析，可以看到里面都类似这样的规则：
