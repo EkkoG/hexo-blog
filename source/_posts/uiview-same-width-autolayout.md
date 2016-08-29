@@ -103,6 +103,32 @@ Autolayout 的布局规则是写 View 与 View 间的相对关系，我们来分
 
 ![](https://ws3.sinaimg.cn/large/74681984gw1f7b22fwniej20hs064t8o)
 
+同理，也可以垂直等高排列：
+
+```
+    UIView *container = [[UIView alloc] init];
+    [self.view addSubview:container];
+    container.backgroundColor = [UIColor redColor];
+    
+    [container cpy_centerToSuperview];
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < 8; i++) {
+        UIView *v = [[UIView alloc] init];
+        v.backgroundColor = [UIColor blueColor];
+        [container addSubview:v];
+        [arr addObject:v];
+
+        [[[v cpy_toWidth:20] cpy_leftToSuperview:0] cpy_rightToSuperview:0];
+        [v cpy_constraintEqualTo:NSLayoutAttributeWidth toView:v toAttribute:NSLayoutAttributeHeight constant:0];
+    }
+    
+    [arr cpy_flexibleHeightWithMargin:0 spacing:5];
+```
+效果如下：
+
+![](https://ws3.sinaimg.cn/large/74681984gw1f7b3ek2c1gj20hs0gemx7)
+
 嗯，还不错 :)
 
 这样就不用算一大堆坐标，只需要设置几条约束就可以了，并且这样如果需要添加或者去掉一个 View 也比较方便。
