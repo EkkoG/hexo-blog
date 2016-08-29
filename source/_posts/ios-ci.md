@@ -81,7 +81,7 @@ Jenkins 有很多种触发构建的方式，如 webhook，定时更新代码等�
 
 具体到 Xcode 中的单元测试，大概就是这样子的了
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6q6onfag2j21gg0aywii)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6q6onfag2j21gg0aywii)
 
 比如我们写了一个工具方法，需要裁剪一个图片，在中心处裁剪出来一个最大正方形，怎么测试这个方法呢？简单点来我们检查裁剪后的图片是不是宽高相等就好了，这里读取工程中的测试图片，调用方法得到新图片，一个 `XCTAssertEqual` 断言，如果宽高相等，则测试通过，如果不等，则失败，同样的方法我们可以写很多测试用例，在执行构建的时候进行测试。由于我对单元测试了解不深，这里就简单举例，有兴趣的话可以自己深入了解一下。
 
@@ -95,7 +95,7 @@ xcodebuild -workspace Demo.xcworkspace -scheme Demo
 
 通常我们用 CocoaPods 管理依赖的话，我们指定的是 workspace，执行过程中我们看到如下信息
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6p4tv1eqbj21hw0vakjl)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6p4tv1eqbj21hw0vakjl)
 
 很丑对不对。。。还没有什么可读性，这里我们可以选择另外一个工具 xctool，Facebook 开源的一个工具，基于 xcodebuild 封装，用法和 xcodebuild 是一样的
 
@@ -105,7 +105,7 @@ xctool -workspace Demo.xcworkspace -scheme Demo
 
 执行过程中看到信息如下
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6p51euyxsj21hw0w8qnx)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6p51euyxsj21hw0w8qnx)
 
 可读性好多了。
 
@@ -139,26 +139,26 @@ brew services start jenkins
 
 新建一个 Job，填入名字，选择 freestyle，确定即可。
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6ri8gs5q5j20yf0aygmy)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6ri8gs5q5j20yf0aygmy)
 
 
 ### 配置版本库
 
 进入建立好的 Job，进入配置选项，在 Source Code Management 中选择自己的版本管理工具，并填入地址和分支，这里以 Git 为例
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6ri9vvbl3j214v0j6jtd)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6ri9vvbl3j214v0j6jtd)
 
 ### 设置触发器
 
 触发器设置，这里我们设置衣每 5 分钟检查一次，有更新就开始构建，无更新则忽略。这个定时器的语法可以点输入框后的问号看到介绍。
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6ric7izq7j214i09z3zn)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6ric7izq7j214i09z3zn)
 
 ### 设置构建脚本
 
 构建脚本设置
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6rifbp8jbj213w09dab2)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6rifbp8jbj213w09dab2)
 
 这里我们可以通过一些插件提供的参数定制自己的操作，比如要在某个分支执行怎么样的编译等。
 
@@ -169,7 +169,7 @@ brew services start jenkins
 
 在 Jenkins 的系统设置里，我们可以设置一下 SMTP 服务器的配置，这样在需要通知的时候可以通过发邮件到指定邮箱进行通知。各个邮件服务器商一般都提供有 SMTP 发信的方式，找到他们的对应配置参数在这里配置一下就可以了。
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f6rijofkurj217r0fudi0)
+![](https://ws3.sinaimg.cn/large/74681984gw1f6rijofkurj217r0fudi0)
 
 ## 自动打包
 

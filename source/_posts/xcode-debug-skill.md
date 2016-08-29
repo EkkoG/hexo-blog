@@ -26,7 +26,7 @@ Action 改为 sound
 
 这个玩法就多了，可以执行 AppleScript, Shell 等，还可以跟参数。例如调用 `say` 命令说一句话。
 
-![](https://ww2.sinaimg.cn/large/74681984gw1f2ubn7j61kj20ci06y3z8.jpg)
+![](https://ws3.sinaimg.cn/large/74681984gw1f2ubn7j61kj20ci06y3z8.jpg)
 
 ## LLDB 命令
 

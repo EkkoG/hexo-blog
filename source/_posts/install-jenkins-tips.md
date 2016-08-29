@@ -77,13 +77,13 @@ https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPag
 
 构建周期一般有两种设置方式，如果需要定期检查代码并构建，那么可以设置 Poll SCM 为
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78ni6y37aj20gk05zwem)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78ni6y37aj20gk05zwem)
 
 图中配置为每 5 分钟检查一次代码更新，有新的代码的话就执行构建。
 
 如果需要定时打包之类的操作，可以设置如下
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78njo2gw5j20gr06faag)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78njo2gw5j20gr06faag)
 
 这样就是在每天晚上 21 点执行构建。
 
@@ -125,11 +125,11 @@ rvm is a shell function from /Users/xx/.rvm/scripts/cli
 
 邮件模板可以在 Jenkins 的系统配置里设置默认的，一般我们在不同的情况下发不同的邮件，比如构建失败时，会 log 发给开发者（这里会自动提取 git 提交者设置的邮件），并提示开发者构建失败了，请立即修改，成功了就不必提示。如果需要发测试包，则需要在构建成功后，发送给测试都，并附上更新日志和下载地址，如果打包失败同需要提示开发者。这些操作可以通过定义不同的触发器，在 Jenkins 项目中的 Post-build Actions 中，给不同的 triggers 设置不同的邮件模板，如失败时，给开发者的模板：
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78oeu7kx9j20pe0g1myl)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78oeu7kx9j20pe0g1myl)
 
 成功时给测试者的模板：
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78ofpvb44j20hg0f8wfx)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78ofpvb44j20hg0f8wfx)
 
 这里提一下 Git log 的提取，Jenkins 可以通过参数得到从上次构建成功后本次构建的 commit message，在邮件中可以通过 ${CHANGES} 参数获取到，并进行格式化，如果只需要一行一个 commit message ，就可以按照图中的方法设置，这里附上我设置的发给测试者的模板：
 
@@ -150,15 +150,15 @@ Check console output at $BUILD_URL to view the results.
 
 邮件模板再好看，不能发还是白搭，我们需要一个方式给把邮件发出去，SMTP 可以做到，一般的邮件服务商都提供这种通用的发邮件方式，在 Jenkins 的系统配置里，添加 Extended E-mail Notification 配置，并设置 SMTP server，这里以 QQ 邮箱为例，QQ 邮件强制使用 SSL，这里注意一下
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78on3e6x9j20kl0bcwf4)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78on3e6x9j20kl0bcwf4)
 
 顺便提一句，再往下可以定义默认模板：
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78oo9xsi5j20pg04laab)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78oo9xsi5j20pg04laab)
 
 需要在 Jenkins 配置中设置系统管理员邮箱为发邮件的邮箱，猜测是做了一个什么认证。
 
-![](https://ww3.sinaimg.cn/large/74681984gw1f78oucnhxpj20hf03pt8r)
+![](https://ws3.sinaimg.cn/large/74681984gw1f78oucnhxpj20hf03pt8r)
 
 在我的网络环境中，有一个奇怪的问题是我设置的 QQ 邮箱服务器提示连不上，但是我用 [Python 脚本发邮件](https://jasonhzy.github.io/2016/06/15/python-email/) 可以发送，同样试了企业邮箱也不行，换成我自定义域名的 yandex 邮件才可以，没有做其他修改。
 
