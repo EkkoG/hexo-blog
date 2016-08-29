@@ -109,6 +109,8 @@ Autolayout 的布局规则是写 View 与 View 间的相对关系，我们来分
 
 完。
 
+完整 Demo 见： https://github.com/cielpy/CPYFlexibleViewDemo
+
 
 ## 参考资料
 1. [iOS Autolayout: two buttons of equal width, side by side](https://stackoverflow.com/questions/28148843/ios-autolayout-two-buttons-of-equal-width-side-by-side)
