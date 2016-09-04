@@ -63,7 +63,7 @@ FLIP_LOG=$(echo "$LOG_WIHT_NEWLINE_TAG" | sed '1!G;h;$!d')
 FLAT_LOG=$(echo "$FLIP_LOG" | tr "\n" " ";echo)
 ```
 
-由于项目使用 Jira 管理 Bug，如果把日志中的 Jira bug 替换成链接就更好了，Jira 的链接格式固定，都是 http://jira.domain.com/browse/ProjectBug-xxx，可以对日志中的 `ProjectBug-xxx` 进行匹配，xxx 是数字，所以规则就是 `ProjectBug-` 后连续 N 个数字，使用正则匹配这一部分可以使用以下正则：
+由于项目使用 Jira 管理 Bug，如果把日志中的 Jira bug 替换成链接就更好了，Jira 的链接格式固定，都是 http://jira.domain.com/browse/ProjectBug-xxx ，可以对日志中的 `ProjectBug-xxx` 进行匹配，xxx 是数字，所以规则就是 `ProjectBug-` 后连续 N 个数字，使用正则匹配这一部分可以使用以下正则：
 
 ```
 ProjectBUG-[0-9]\{1,\}
@@ -87,7 +87,7 @@ echo FILTERED_CHANGES="$(echo "$LOG_WITH_LINK")" >> build.properties
 
 按照 [Jenkins 变量传递](https://ws3.sinaimg.cn/large/74681984gw1f7gttdvfffj21kw0exjty.jpg) 的方法设置，在之后的步骤中，就可以使用 `FILTERED_CHANGES` 变量了。
 
-整个过程就是一个面向 Google 折腾的过程，由于对这些替换匹配操作都不熟，所以一步一查，最终达到了效果。
+整个过程就是一个面向 Google 折腾的过程，由于对这些替换匹配操作都不熟，所以一步一查，可以看本篇文章那长长的参考资料列表 :( 不过最终达到了效果，还不错 :)
 
 ### 参考
 
