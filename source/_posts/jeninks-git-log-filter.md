@@ -57,10 +57,16 @@ FLIP_LOG=$(echo "$LOG_WIHT_NEWLINE_TAG" | sed '1!G;h;$!d')
 
 嗯，这个命令我还不是很懂，Google 查到的，见参考资料。
 
+在行首添加行号：
+
+```
+LOG_WITH_LINE_NUMBER=$(echo "$FLIP_LOG" | awk '{printf NR"."" "}1')
+```
+
 接下来需要将所有行转成一行，之前没有转是因为方便对每一行处理，这里处理基本完成了，可以转成一行方便存储，同时也因为需要使用 [Envinject](https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin) 注入环境变量，而变量是不能换行的，所有这里要转成一行，命令：
 
 ```
-FLAT_LOG=$(echo "$FLIP_LOG" | tr "\n" " ";echo)
+FLAT_LOG=$(echo "$LOG_WITH_LINE_NUMBER" | tr "\n" " ";echo)
 ```
 
 由于项目使用 Jira 管理 Bug，如果把日志中的 Jira bug 替换成链接就更好了，Jira 的链接格式固定，都是 http://jira.domain.com/browse/ProjectBug-xxx ，可以对日志中的 `ProjectBug-xxx` 进行匹配，xxx 是数字，所以规则就是 `ProjectBug-` 后连续 N 个数字，使用正则匹配这一部分可以使用以下正则：
@@ -109,6 +115,7 @@ echo FILTERED_CHANGES="$(echo "$LOG_WITH_LINK")" >> build.properties
 16. [sed命令详解](http://www.cnblogs.com/edwardlost/archive/2010/09/17/1829145.html)
 17. [sed 匹配替换](https://wiki.imciel.com/sandry/sed%E5%8C%B9%E9%85%8D%E6%9B%BF%E6%8D%A2)
 18. [Jenkins 变量传递](https://wiki.imciel.com/sandry/jenkins-var-inject)
+19. [如何用sed/awk行首插入行号？](http://bbs.chinaunix.net/thread-4140304-1-1.html)
 
 --EOF--
 
