@@ -1,5 +1,5 @@
 ---
-title: 在 macOS sierra 上替换 CapsLock 键为 Escape 键
+title: 在 macOS Sierra 上替换 CapsLock 键为 Escape 键
 tags:
   - 键盘映射
 categories:
@@ -7,7 +7,7 @@ categories:
 date: 2016-09-09 19:40:19
 ---
 
-根据 Karabiner 作者的描述，macOS sierra 对键盘和鼠标的驱动的修改和 Karabiner 有冲突，所以现在 karabiner 在 macOS sierra 上不能工作了。
+根据 Karabiner 作者的描述，macOS Sierra 对键盘和鼠标的驱动的修改和 Karabiner 有冲突，所以现在 karabiner 在 macOS Sierra 上不能工作了。
 
 >macOS 10.12 changes of the generic keyboard and mouse drivers made a great impact on Karabiner and Seil.
 We should make a large changes in Karabiner and Seil architecture.
@@ -26,7 +26,7 @@ There is not a workaround for this issue.
 >![](http://i.stack.imgur.com/cW1RK.png)
 >Credit to this github comment: https://github.com/tekezo/Seil/issues/68#issuecomment-230131664
 
-不过使用的这个软件是付费的，在 Karabiner 适配 macOS sierra 前就先用这个替代了。
+不过使用的这个软件是付费的，在 Karabiner 适配 macOS Sierra 前就先用这个替代了。
 
 完。
 
