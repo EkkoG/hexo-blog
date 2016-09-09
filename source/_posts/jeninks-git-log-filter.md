@@ -21,7 +21,7 @@ http://<host>/job/<job_name>/lastSuccessfulBuild/api/xml
 curl --silent --user $USER:$API_TOKEN $URL | grep "<lastBuiltRevision>" | sed 's|.*<lastBuiltRevision>.*<SHA1>\(.*\)</SHA1>.*<branch>.*|\1|'
 ```
 
-`lastBuiltRevision` 就是上次构建成功时的 Git commit 的 HASH 值，注意这条链接访问需要权限，$USRR 参数是 Jenkins 用户名，$API_TOKEN 是用户密码。
+`lastBuiltRevision` 就是上次构建成功时的 Git commit 的 HASH 值，注意这条链接访问需要权限，$USR 参数是 Jenkins 用户名，$API_TOKEN 是用户密码。
 
 Jenkins 也提供了参数给出上次构建成功时的 Git commit HASH 值，及 GIT_PREVIOUS_SUCCESSFUL_COMMIT，在执行构建时可以使用这个参数。
 
@@ -118,5 +118,3 @@ echo FILTERED_CHANGES="$(echo "$LOG_WITH_LINK")" >> build.properties
 19. [如何用sed/awk行首插入行号？](http://bbs.chinaunix.net/thread-4140304-1-1.html)
 
 --EOF--
-
-
