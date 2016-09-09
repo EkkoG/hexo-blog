@@ -30,7 +30,24 @@ sed -i "s/ww2/ws3/g" *.m
 sed -i "" "s/ww2/ws3/g" *.m
 ```
 
-参考：
+sed 也可以匹配一部分，作为参数，供替换的时候使用，假设有很多个 testfunc(10) 之类的字符串需要替换成括号里的值，可以使用以下命令：
+
+```
+sed -i '' 's/testfunc(\([0-9a-zA-Z+-\*\/\ ]*\))/\1/g'
+```
+
+其中的转义括号内匹配到的值作为参数使用，以上规则匹配了括号内的数字，大小写字母和 + - * / 符号，空格，匹配到的参数在后面可以用 `\1` 拿到，把这个参数作为要替换的值进行替换即可。
+
+如果需要遍历目录下的文件进行替换，可以配合 find 命令使用：
+
+```
+find . -name "*.m" -print | xargs sed -i '' 's/testfunc(\([0-9a-zA-Z+-\*\/\ ]*\))/\1/g'
+```
+
+## 参考资料
+
   1. [In-place edits with sed on OS X](https://stackoverflow.com/questions/7573368/in-place-edits-with-sed-on-os-x)
   2. [sed 简明教程](http://coolshell.cn/articles/9104.html)
+
+--EOF--
 
