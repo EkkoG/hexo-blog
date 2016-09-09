@@ -28,11 +28,11 @@ There is not a workaround for this issue.
 
 先在系统偏好设置-键盘-修饰键里，修改 CapsLock 键为 Control 键。
 
-![](http://ww3.sinaimg.cn/large/74681984gw1f7nkuubdytj20if0b3401.jpg)
+![](https://ww3.sinaimg.cn/large/74681984gw1f7nkuubdytj20if0b3401.jpg)
 
 再使用 Keyboard Maestro 设置如下：
 
-![](http://ww1.sinaimg.cn/large/74681984gw1f7nkxb7nh7j20ef0brabh.jpg)‘
+![](https://ww3.sinaimg.cn/large/74681984gw1f7nkxb7nh7j20ef0brabh.jpg)‘
 
 注意这里 CapsLock 后面用了 tapped，而不是 Stackoverflow 中的 pressed，使用 pressed  的话，只要按了 CapsLock 键就会响应 Escape 事件，但以我使用 Karabiner 的习惯来讲，我只希望在只按 CapsLock 键并松手的时候才响应 Escape 键，这样的效果只有使用 tapped 可以达到，如果按住 CapsLock 并组合其他键使用，并不会响应 CapsLock 的 tapped 事件，这样就不会响应 Escape，然后此时的作用就相当于 Control 键了，可以使用 CapsLock + F 前移光标，CapsLock + B 后退光标等等，和使用 Karabiner 时效果一样。
 
