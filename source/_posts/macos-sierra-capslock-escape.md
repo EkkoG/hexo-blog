@@ -23,7 +23,7 @@ There is not a workaround for this issue.
 经过一番搜索，在 Stackoverflow 上找到一个方案：
 
 >Seil isn't yet available on macOS Sierra (10.12 beta). As such, I've been using Keyboard Maestro with these settings: 
->![](http://ww4.sinaimg.cn/large/74681984gw1f7nl62c671j210m0tewkm.jpg)
+>![](https://ww3.sinaimg.cn/large/74681984gw1f7nl62c671j210m0tewkm.jpg)
 >Credit to this github comment: https://github.com/tekezo/Seil/issues/68#issuecomment-230131664
 
 先在系统偏好设置-键盘-修饰键里，修改 CapsLock 键为 Control 键。
