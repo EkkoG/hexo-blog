@@ -435,6 +435,7 @@ https://github.com/cielpy/CPYJSCoreDemo
 * [JavaScriptCore by Example](https://www.bignerdranch.com/blog/javascriptcore-example/)
 * [ JavaScriptCore初探](https://hjgitbook.gitbooks.io/ios/content/04-technical-research/04-javascriptcore-note.html)
 * [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge)
+* [JavaScriptCore 使用](http://www.jianshu.com/p/a329cd4a67ee)
 
 
 -- EOF --
