@@ -14,7 +14,7 @@ before_install:
 - git config --global user.name "cielpy"
 - git config --global user.email "beijiu572@gmail.com"
 
-- git clone https://github.com/cielpy/hexo-theme-material.git
+- git clone https://github.com/cielpy/hexo-theme-material.git theme/hexo-theme-material
 
 - npm install -g hexo-cli
 install:
