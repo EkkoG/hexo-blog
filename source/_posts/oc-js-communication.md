@@ -142,6 +142,8 @@ iOS 7 开始，苹果提供了一个叫作 JavaScriptCore 的框架，使用 Jav
 
 是不是方便了很多？还可以传值。
 
+代码见： https://github.com/cielpy/CPYJSCoreDemo/tree/v0.1
+
 ### OC 和 JS 间传值和获取方法返回值
 
 #### JS 传值给 OC，并获取 OC 方法的返回值
@@ -165,12 +167,13 @@ JS 中：
 OC 中：
 
 ```
-    JSValue *returnValue = [JSValue valueWithObject:@"oc ahh" inContext:self.context];
     self.context[@"ocAlert"] = ^JSValue *(JSValue *string){
         NSLog(@"%@", [string toString]);
-        return returnValue;
+        return [JSValue valueWithObject:@"oc ahh" inContext:weakSelf.context];
     };
 ```
+
+这里需要注意一个比较隐蔽的循环引用问题，JSValue 对 JSContext 对象和它所管理的 JS 对象都是强引用，所以用 weak 规避一下循环引用问题。
 
 点击网页中的按钮时，控制台输出：
 
@@ -214,6 +217,8 @@ JS 中：
 ```
 2016-09-28 22:01:31.225 CPYJSCoreDemo[93696:906495] js return value is js ahhh
 ```
+
+代码见： https://github.com/cielpy/CPYJSCoreDemo/tree/v0.2
 
 ### 获取不同类型的 JS 变量
 
@@ -267,6 +272,9 @@ OC 中获取变量并转换：
 2016-09-28 22:40:09.420 CPYJSCoreDemo[96754:943326] js bool var is 0
 2016-09-28 22:40:09.421 CPYJSCoreDemo[96754:943326] js int var is 100
 ```
+
+代码见： https://github.com/cielpy/CPYJSCoreDemo/tree/v0.3
+
 ### OC 和 JS 间的异步回调
 
 #### JS 回调给 OC
@@ -342,6 +350,74 @@ function ocCallback() {
 
 ![](https://ws3.sinaimg.cn/large/74681984gw1f89pv00p8lj20hs0vkt9l.jpg)
 
+代码见： https://github.com/cielpy/CPYJSCoreDemo/tree/v0.4
+
+### JSExport 协议
+
+除了上文经常用到的使用 Block 方式交互，还有另一种方式，JSExport 协议，我们可以定义一个继承于 JSExport 协议的协议，如下：
+
+```
+@protocol JSBridgeProtocol <JSExport>
+
+- (NSInteger)add:(NSInteger)a b:(NSInteger)b;
+
+@end
+```
+
+这里定义了一下简单的 add 方法，参数为两个 NSInteger 类型变量。
+
+再定义一个类实现这个自定义的协议，如下：
+
+```
+@interface JSBridge : NSObject<JSBridgeProtocol>
+
+
+@end
+
+
+@implementation JSBridge
+
+- (NSInteger)add:(NSInteger)a b:(NSInteger)b {
+    return a + b;
+}
+
+@end
+```
+
+简单的实现一下这个协议，两个变量相加并返回结果。
+
+在 OC 中，创建对象并赋值给 JS 环境，如下：
+
+```
+    self.context[@"ocObj"] = [[JSBridge alloc] init];
+```
+
+这样，在 JS 环境中就可以使用这个 `ocObj` 变量了。
+
+在 JS 中，修改代码如下：
+
+```
+      function alertFunc() {
+        window.alert("这是一个JS中的弹框！" + ocObj.addB(3,5))
+      }
+```
+
+在 OC 中，获取这个 JS 函数并调用：
+
+```
+    JSValue *funcValue = self.context[@"alertFunc"];
+    [funcValue callWithArguments:nil];
+```
+
+弹窗结果如下：
+
+![](https://ws3.sinaimg.cn/large/74681984gw1f8aaciyetjj20hs0vkdgc.jpg)
+
+可以看到 add 方法的运算结果。
+
+通过这样的一个对象，我们可以定义一些复杂或者单独操作的一些业务逻辑，不用都挤在 ViewController 里。对代码的可维护性有一定的好处的。
+
+代码见： https://github.com/cielpy/CPYJSCoreDemo/tree/v0.5
 
 
 ## 写在后面
@@ -359,6 +435,7 @@ https://github.com/cielpy/CPYJSCoreDemo
 * [JavaScriptCore by Example](https://www.bignerdranch.com/blog/javascriptcore-example/)
 * [ JavaScriptCore初探](https://hjgitbook.gitbooks.io/ios/content/04-technical-research/04-javascriptcore-note.html)
 * [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge)
+* [JavaScriptCore 使用](http://www.jianshu.com/p/a329cd4a67ee)
 
 
 -- EOF --

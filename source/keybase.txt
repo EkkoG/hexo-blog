@@ -1,0 +1,55 @@
+
+==================================================================
+https://keybase.io/cielpy
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://imciel.com
+  * I am cielpy (https://keybase.io/cielpy) on keybase.
+  * I have a public key ASDHY7-IoaE0lTBCT4zWaW2rxk4EL9coofo4KM0XkA2fcAo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01015d0046af8f16d7c70d31e90b1a1de5540960fd76338335674d2eb847fdbbcb5c0a",
+            "host": "keybase.io",
+            "kid": "0120c763bf88a1a1349530424f8cd6696dabc64e042fd728a1fa3828cd17900d9f700a",
+            "uid": "3dd0ed8fde8f5214f3051a0acb458d19",
+            "username": "cielpy"
+        },
+        "service": {
+            "hostname": "imciel.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.17"
+    },
+    "ctime": 1475943271,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1475943147,
+        "hash": "181aa10c1f83a7e9a852f626f3eaf5a79fa782c6d654303ebbd02460575f9dc32eccb0f82f0e0f3db618976676d6f42020c533a2c5f3282b8c4764cf961aafae",
+        "seqno": 669570
+    },
+    "prev": "c41bd78c166db8b8c4b693aeedfaff4c734a745f8435eb476c376b7357a20d42",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgx2O/iKGhNJUwQk+M1mltq8ZOBC/XKKH6OCjNF5ANn3AKp3BheWxvYWTFAvB7ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTAxNWQwMDQ2YWY4ZjE2ZDdjNzBkMzFlOTBiMWExZGU1NTQwOTYwZmQ3NjMzODMzNTY3NGQyZWI4NDdmZGJiY2I1YzBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYzc2M2JmODhhMWExMzQ5NTMwNDI0ZjhjZDY2OTZkYWJjNjRlMDQyZmQ3MjhhMWZhMzgyOGNkMTc5MDBkOWY3MDBhIiwidWlkIjoiM2RkMGVkOGZkZThmNTIxNGYzMDUxYTBhY2I0NThkMTkiLCJ1c2VybmFtZSI6ImNpZWxweSJ9LCJzZXJ2aWNlIjp7Imhvc3RuYW1lIjoiaW1jaWVsLmNvbSIsInByb3RvY29sIjoiaHR0cHM6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE3In0sImN0aW1lIjoxNDc1OTQzMjcxLCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0NzU5NDMxNDcsImhhc2giOiIxODFhYTEwYzFmODNhN2U5YTg1MmY2MjZmM2VhZjVhNzlmYTc4MmM2ZDY1NDMwM2ViYmQwMjQ2MDU3NWY5ZGMzMmVjY2IwZjgyZjBlMGYzZGI2MTg5NzY2NzZkNmY0MjAyMGM1MzNhMmM1ZjMyODJiOGM0NzY0Y2Y5NjFhYWZhZSIsInNlcW5vIjo2Njk1NzB9LCJwcmV2IjoiYzQxYmQ3OGMxNjZkYjhiOGM0YjY5M2FlZWRmYWZmNGM3MzRhNzQ1Zjg0MzVlYjQ3NmMzNzZiNzM1N2EyMGQ0MiIsInNlcW5vIjo5LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQFQAbLDaEdxDgNBaYxBGagqECt7aEIWNQ93cL9NKA/WMDGMKb2LTvnM1JQ2JmHpMCx/CmPn+TIitH0cHtV078Qaoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCAh3+4S7Kz3pbjVH9z61eSd647i4ET4rGQKoAva65g2aqN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/cielpy
+
+==================================================================
