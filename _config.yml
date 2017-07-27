@@ -88,7 +88,6 @@ deploy:
   type: git
   repo:
     github: git@github.com:cielpy/cielpy.github.io.git,master
-    coding: git@git.coding.net:cielpy/hexoblog.git,master
 
 since: 2014
 
