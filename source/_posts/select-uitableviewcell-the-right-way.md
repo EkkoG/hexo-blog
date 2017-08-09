@@ -19,6 +19,8 @@ date: 2016-06-15 15:14:52
 
 运行后会发现是没有效果的，`cell` 最终会是未选中状态，可以在自定义的 `UITableViewCell` 子类中重写 `setSelected:animated:` 方法，加上断点看到，每个 `cell` 的 `setSelected:animated:` 方法会被调用三次
 
+<!-- more -->
+
 我们同时可以在这个断点触发时看到左侧的调用栈信息
 
 `cell` 在初始化或者重用时，调用 `-_configureCellForDisplay:forIndexPath:` 方法，这个方法会做一些附带操作，其中会调用 `setSelected:animated:` 方法，将 cell 的选中状态置为未选中。

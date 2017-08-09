@@ -17,6 +17,8 @@ date: 2016-06-11 21:27:00
 
 最近用 [RAC](https://github.com/ReactiveCocoa/ReactiveCocoa) 比较多，RAC 被称为函数响应式编程（[FRP](https://en.wikipedia.org/wiki/Functional_reactive_programming)）框架，各种教程中对响应式的特性介绍比较多，对函数式特性的介绍不怎么多，一直不太明白 RAC 的函数式编程的特性体现在哪里，今天想起来一个概念，链式调用，查了一下后才明白 RAC 中的函数式编程体现在哪里。
 
+<!-- more -->
+
 ## 链式调用
 
 链式调用的一个特点就是返回值为一个 block，block 其实是一个匿名函数，定义方法如下：

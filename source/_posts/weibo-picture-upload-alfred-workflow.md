@@ -15,6 +15,8 @@ date: 2016-07-17 14:51:45
 
 用 Markdown 写博客经常需要上传图片，最开始的时候用[微博图床 Chrome 插件](https://github.com/Suxiaogang/WeiboPicBed)，如果需要上传图片，需要截图或者复制文件，打开 Chrome，找到插件，打开插件，粘贴，得到 URL，在 Markdown 编辑器中插入，步骤烦琐，大部分需要鼠标操作，效率低。后来发现了一个 Alfred Workflow，[markdown-img-upload](https://github.com/tiann/markdown-img-upload)，这个 workflow 可以读取剪切板中的图片并上传到七牛，得到 URL 后复制，整个上传过程精简了许多，但是有一个问题，如果用自己的域名，需要备案，如果用七牛提供的测试域名，哪天不提供了，或者换了咋办，服务稳定性（这里指域名）是个问题。昨天又发现了一个图床服务，[天喵是个好图床](https://www.tmall.casa/file/)，用的是天猫的资源，有 Alfred workflow，需要激活 File Action 才可以上传，另外，不知道天猫的接口，上传图片要经过这个网站，倒闭了怎么办。综上，三个服务的优缺点如以下图表：
 
+<!-- more -->
+
 |  | Alfred workflow 上传到七牛 | Alfred workflow 上传到天猫图床 | 浏览器插件上传到新浪 |
 | --- | :-: | :-: | :-: |
 | CDN | 有 | 有 | 有 |

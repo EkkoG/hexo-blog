@@ -17,6 +17,8 @@ Autolayout 的布局规则是写 View 与 View 间的相对关系，我们来分
 3. 一个 View 到下一个 View 有一定边距
 4. 最右边 View 到父 View 一定边距
 
+<!-- more -->
+
 如果想要这些 View 在容器中完全均分，上述的边距都为 0 即可。
 
 按照上面的想法来实践下，以下代码中的几个方法是对 NSLayoutConstraint 实例方法 `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:` 的简单封装，字面意思，详情实现见 [UIView+CPYLayout.m](https://github.com/cielpy/CPYFlexibleViewDemo/blob/master/CPYFlexibleViewDemo/UIView%2BCPYLayout.m)

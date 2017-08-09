@@ -10,6 +10,8 @@ date: 2016-09-05 21:21:53
 
 在 Frame 布局时代，如果要实现一个动态高度的 Cell，需要给 Cell 绑定数据后，根据内容的展示情况计算得到 Cell 的高度，最好再加一个高度缓存，因为这种计算在 UITableView 滑动时代价还是比较高昂的。那么配合 Autolayout 可不可以实现动态高度 Cell 呢？当然是可以的。
 
+<!-- more -->
+
 分析一下，和之前的一篇文章《[几个 Autolayout 技巧](https://imciel.com/2016/08/23/autolayout-tips/)》中的分析类似，如果约束可以限制内容的显示范围，在绑定数据后，Autolayout 理应得到整个父 View 的显示范围，这样就得到了父 View 的高度，虽然 UITableViewCell 有点特殊，但是它作为一个 View 应该也适用这样的道理。
 
 试着写了个 Demo，Cell 类似微博的时间线，最上方是一个用户名 Label，往下依次是标题，内容，和一个按钮，最终效果如下：

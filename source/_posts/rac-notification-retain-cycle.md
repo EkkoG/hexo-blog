@@ -21,6 +21,8 @@ date: 2016-07-22 23:07:09
 }
 ```
 
+<!-- more -->
+
 如果这样使用了，那么这个 `ViewController` 就释放不了了，为什么呢，翻了一下源码，看看 `rac_addObserverForName` 是怎么运行的。
 
 `rac_addObserverForName` 是怎么运行的呢，通常我们如果需要在一个 `ViewController` 中监听一个事件的话会把 `ViewController` 自身作为一个监听者（observer)，RAC 中并不是这样，RAC 中 `rac_addObserverForName` 方法的代码如下：

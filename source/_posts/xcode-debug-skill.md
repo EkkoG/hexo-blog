@@ -16,6 +16,9 @@ date: 2016-06-10 12:54:06
 
 ![](https://www.bignerdranch.com/img/blog/2013/11/edit-breakpoint-window.png)
 
+
+<!-- more -->
+
 Action 改为 sound
 
 ![](https://www.bignerdranch.com/img/blog/2013/11/breakpoint-actions.png)

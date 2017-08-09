@@ -14,6 +14,8 @@ Alfred 真是 Mac 平台的神器，可以很方便的执行一些任务，比�
 ![](https://ws3.sinaimg.cn/large/74681984gw1f2bgy73dqkj20f0036t8q.jpg)
 还是挺方便的。
 
+<!-- more -->
+
 Workflow 的制作方法，还是挺简单的，流程就是，查询数据-封装数据为指定格式-返回给 Alfred 就可以了，看 dangoakachan 的 Workflow 源码的时候，看到用了一个封装好的库，https://github.com/deanishe/alfred-workflow ，这个库就是把 Workflow 的制作进制了封装，发送请求，解析数据，封装数据，返回数据给 Alfred 一条龙服务，还是相当方便的。而且文档齐全，按照文档一步一步做，基本没有什么问题。
 
 我主要参考了这个教程 http://www.deanishe.net/alfred-workflow/tutorial_1.html

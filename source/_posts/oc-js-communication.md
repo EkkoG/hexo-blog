@@ -13,6 +13,8 @@ date: 2016-06-18 20:44:26
 
 iOS 开发中，我们时不时的需要加载一些 Web 页面，一些需求使用 Web 页面来实现可以更可控，如上线后也可以发布更新，修改 UI 布局，或者修复 bug，这些 Web 页面的作用不止是展示，很大一部分是需要和原生代码实现的 UI 和业务逻辑发生交互的，那么不可避免的，就需要用一些方法来实现 Web 页面（主要是 JavaScript）和原生代码之间的通信，在 JavaScriptCore 出现之前，很多项目都在用 [WebViewJavascriptBridge](https://github.com/marcuswestin/WebViewJavascriptBridge) 作为 Web 页面和原生代码之间的一个桥梁（bridge)，来传输一些数据和方法的调用，如 [Facebook Messenger](https://www.facebook.com/mobile/messenger)，[Facebook Paper](https://facebook.com/paper) 等。
 
+<!-- more -->
+
 ## WebViewJavascriptBridge 原理简述
 WebViewJavascriptBridge 的原理是通过自定义 `scheme`，在加载一个特定标识的URL（ `wvjbscheme://__BRIDGE_LOADED__`）时在 UIWebView 的代理方法 `webView:shouldStartLoadWithRequest:navigationType:` 中拦截 URL 并通过 UIWebView 的 `stringByEvaluatingJavaScriptFromString:` 方法执行一段 [JS](https://github.com/marcuswestin/WebViewJavascriptBridge/blob/master/WebViewJavascriptBridge/WebViewJavascriptBridge_JS.m)，这个 JS 文件中声明了一些变量和方法，在通讯中作为一个桥梁，那么怎么通讯呢？
 

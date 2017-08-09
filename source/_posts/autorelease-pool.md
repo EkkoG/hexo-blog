@@ -21,6 +21,8 @@ date: 2016-05-11 00:26:47
 
 文档中说的很明确，在引用计数环境中（而不是垃圾回收机选）Autorelease Pool 中包含了收到 `autorelease` 消息的对象，并在 「倾倒」 Autorelease Pool 的时候，给其中的每个对象发送 `release` 消息。  
 
+<!-- more -->
+
 之前对 Autorelase Pool  是否影响局部变量不是太确定，文档显示，Autorelease Pool 只包含收到 `autorelease` 消息的对象，局部变量的生命周期应该有持有者管理，Autorelease Pool 只管 `autorelease` 对象。如果对象创建后没有 `release` 则造成内存泄露，Autorelease Pool  并不会自动帮开发者处理这些造成内存泄露的对象。
 
 ##  两种 Autorelease Pool

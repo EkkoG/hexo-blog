@@ -20,6 +20,8 @@ There is not a workaround for this issue.
 
 作为一人每天使用这个软件的我简直是晴天霹雳啊，现在对键盘的使用习惯是把 CapsLock 键映射成 Control 键，并在只按左边的 Control 键时，等同于 Escape 键，这样用起来比较顺手，对于使用 Vim 较多的人来说，使用 CapsLock 替换掉 Escape 可以省去左手在键盘上跑来跑去。作者说要适配 macOS 10.12 要做的修改很大，已经在进行中了，新开了一项目：https://github.com/tekezo/Karabiner-Elements ，作者建议现在不要用在自己的电脑上，所以，先找替代方案吧。
 
+<!-- more -->
+
 经过一番搜索，在 Stackoverflow 上找到一个方案：
 
 >Seil isn't yet available on macOS Sierra (10.12 beta). As such, I've been using Keyboard Maestro with these settings: 

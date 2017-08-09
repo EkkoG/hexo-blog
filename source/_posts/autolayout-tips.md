@@ -12,6 +12,8 @@ date: 2016-08-23 22:51:50
 
 iOS 设备的尺寸正在变的越来越多，在 iOS App 开发初期，只需要处理 3.5 寸 屏幕的布局，那个时候使用 frame 布局是唯一的方式，后来多了 4 寸屏幕 和 iPad 的 9.7 寸，iPad 上的 App 界面一般单独开始，写死坐标问题依旧可行，到再后来，iPad mini (7.9 寸），iPhone 6（4.7 寸），iPhone 6 plus（5.5 寸）紧跟着出现，写死坐标的布局方式的弊端开始显现，在多种尺寸上如何布局成了问题，这个时候苹果在 iOS 6 的时候推出的 Autolyout 布局方式变的流行，相对于写死坐标的布局方式，Autulayout 通过定义控件与控件之间的相对位置约束，在运行时根据不同的屏幕尺寸，得到不同的布局，更加灵活，可以更好的适应多种尺寸的设备。写一套约束，可以不同尺寸的设备上达到不同的布局效果，何乐而不为呢。
 
+<!-- more -->
+
 使用 Autulayout 可以有多种方式，如果习惯用 XIB 或者 Storyboard，那么可以在用可视化的方式，在 XIB 或者 Storyboard 中添加约束。如果习惯用编写代码的方式进行布局，那么可以选择使用 UIKit 中 `NSLayoutConstraint` 类的类方法 `constraintWithItem:attribute:relatedBy:toItem:attribute:multiplier:constant:` 进行布局，或者选择第三库如 [Masonry](https://github.com/SnapKit/Masonry),[PureLayout](https://github.com/PureLayout/PureLayout) 等等，它们对系统的布局方法进行了封装，语法相对来说更人性化一点，没有系统语言那多啰嗦。看个人喜好吧。
 
 最近使用 Autulayout 比较多，有些场景下使用 Autolayout 比使用写死坐标的方法布局来的方便的多。下面举例来说我遇到的一些场景。

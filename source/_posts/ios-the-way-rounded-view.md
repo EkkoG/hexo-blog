@@ -25,7 +25,7 @@ view.layer.cornerRadius = 8.0f;
 
 ![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77j9loszdj20hs0gkdg2)
 
-
+<!-- more -->
 
 如果需要切掉除了保留部分以外的子 View，那么需要加上
 

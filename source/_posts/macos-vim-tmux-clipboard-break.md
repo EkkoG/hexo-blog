@@ -14,6 +14,8 @@ date: 2016-09-11 01:13:48
 
 首先主要是键盘映射类的，因为 Sierra 上对键盘和鼠标的驱动发动较大，导致了与其相关的软件基本都不能正常工作，这个在之前的文章中有提到，见 [在 macOS Sierra 上替换 CapsLock 键为 Escape 键](https://imciel.com/2016/09/09/macos-sierra-capslock-escape/) 好在找到了解决办法。
 
+<!-- more -->
+
 然后发现，之前设置的 Vim 和系统共享剪切板不能工作，并在 V2EX 上发现了同样情况的网友：
 [macOS Sierra 下是不是 vim 不能再和系统共享剪贴板了？](https://www.v2ex.com/t/305371)
 
