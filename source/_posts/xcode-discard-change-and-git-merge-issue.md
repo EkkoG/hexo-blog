@@ -19,7 +19,7 @@ $ ls
 CPYMergeDemo/  CPYMergeDemo.xcodeproj/  CPYMergeDemoUITests/
 ```
 
-在 master 分支上，修改 ViewController.m 如下，并进行一次 commit
+在 master 分支上，修改 ViewController.m 一行代码，并进行一次 commit
 
 ```
 $ gc -a -m "test 0"
@@ -243,4 +243,7 @@ commit 6b9d187 中在 `didReceiveMemoryWarning` 中方法中添加了一行代�
 总结：
 
 慎用 Discard All Changes... 操作！
+
+
+Demo 地址：https://github.com/cielpy/CPYMergeDemo
 
