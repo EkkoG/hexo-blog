@@ -149,8 +149,6 @@ All conflicts fixed but you are still merging.
   (use "git commit" to conclude merge)
 ```
 
-文本内容变成
-
 git 的状态还保留了合并未完成的状态，如下：
 
 ```
@@ -166,7 +164,7 @@ $ cat .git/MERGE_HEAD
 6b9d187115f0551691cd06d77d3c8f8ed996c278
 ```
 
-这是一个很隐蔽的状态，几乎不可能注意到这个状态，此时若我们进行修改，暂存区变成这样：
+这是一个很隐蔽的状态，不特别注意几乎不可能注意到这个状态，此时若我们进行修改，暂存区变成这样：
 
 ```
 $ git status
@@ -200,7 +198,7 @@ $ gc -a -m "test 3"
 * 14bb742 - (25 minutes ago) Initial Commit — cielpy
 ```
 
-commit 6b9d187 中在 `didReceiveMemoryWarning` 中方法中添加了一行代码，这条 commit 出现在了历史记录中，而现在 ViewController.m 文件的内存是这样的：
+commit 6b9d187 中在 `didReceiveMemoryWarning` 中方法中添加了一行代码，这条 commit 出现在了历史记录中，而现在 ViewController.m 文件的内容是这样的：
 
 ```
 //
