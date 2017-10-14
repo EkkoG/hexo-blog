@@ -11,6 +11,8 @@ date: 2017-10-13 17:02:57
 
 使用 Git 合并时常会产生冲突，某些情况下我们想丢弃此次合并，通常会使用 `git reset --hard HEAD` 命令来重置，其实 `git reset --hard HEAD` 命令在此时不光重置了暂存区，还结束了丢弃了这次合并，和 Xcode 的 Discard All changes 行为和 `git reset --hard HEAD` 并不完全一致，只是重置暂存区而没有结束 merge，接下来的 commit 将自动完成这次 merge，因为同时重置了暂存区，最终造成代码丢失。下面用一个 demo 来重现和解释这个现象。
 
+<!-- more -->
+
 demo 如下：
 
 
