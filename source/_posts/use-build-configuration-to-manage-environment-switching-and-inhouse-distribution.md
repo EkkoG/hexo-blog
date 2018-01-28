@@ -98,3 +98,7 @@ Xcode 还提供一个功能，称之为 `User-defined setting`，Xcode 的工程
 
 管理配置的方式有很多，看哪一款适合自己的情况，我想上面四种方案应该能解决绝大部分情况，如有错误，还望指出。
 
+### 参考资料
+
+[Effective Environment Switching in iOS](https://blog.usejournal.com/effective-environment-switching-in-ios-6df0b08e9556)
+
