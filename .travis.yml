@@ -22,8 +22,9 @@ before_install:
 - git clone https://github.com/cielpy/hexo-theme-even.git themes/hexo-theme-even
 
 - npm install -g hexo-cli
+- npm install -g yarn
 install:
-- npm install
+- yarn install
 script:
 - hexo generate
 after_success:
