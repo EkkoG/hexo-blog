@@ -103,7 +103,7 @@ iOS 7 开始，苹果提供了一个叫作 JavaScriptCore 的框架，使用 Jav
 
 点击按钮时，效果如下。
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f89q4nyaewj20hs0vkjsc.jpg)
+![](https://i.imgur.com/RZOXfpt.jpg)
 
 
 实现了 OC 中调用 JS 的方法。
@@ -137,7 +137,7 @@ iOS 7 开始，苹果提供了一个叫作 JavaScriptCore 的框架，使用 Jav
 点击 Web 页面上的 button 按钮，效果如下
 
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f89q5066ydj20hs0vkt9j.jpg)
+![](https://i.imgur.com/AHohgBr.jpg)
 
 
 实现了 JS 调用 OC 中的方法。
@@ -185,7 +185,7 @@ OC 中：
 
 观察一下弹窗中的值，可以看到 block 中的值在弹窗中出现
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f89nhk9jh2j20hs0vk0tp.jpg)
+![](https://i.imgur.com/u0s8aOp.jpg)
 
 
 #### OC 中传值给 JS，并获取 JS 方法的返回值
@@ -212,7 +212,7 @@ JS 中：
 
 点击原生界面中的 Button 时，弹窗如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f89mti4barj20hs0vkq3v.jpg)
+![](https://i.imgur.com/jio0UFv.jpg)
 
 控制台打印如下：
 
@@ -350,7 +350,7 @@ function ocCallback() {
 
 两秒钟后，JS 弹窗出下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f89pv00p8lj20hs0vkt9l.jpg)
+![](https://i.imgur.com/2A8xgst.jpg)
 
 代码见： https://github.com/cielpy/CPYJSCoreDemo/tree/v0.4
 
@@ -413,7 +413,7 @@ function ocCallback() {
 
 弹窗结果如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f8aaciyetjj20hs0vkdgc.jpg)
+![](https://i.imgur.com/A3PRkH1.jpg)
 
 可以看到 add 方法的运算结果。
 

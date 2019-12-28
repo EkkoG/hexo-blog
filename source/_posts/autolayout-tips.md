@@ -24,11 +24,11 @@ iOS 设备的尺寸正在变的越来越多，在 iOS App 开发初期，只需�
 
 情况 1：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f743z6wd0lj208205na9y)
+![](https://i.imgur.com/Cr68Qyi.jpg)
 
 情况 2：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f74445m5toj208006q0so)
+![](https://i.imgur.com/AkEMLzs.jpg)
 
 
 有些提示需要给用户做选择，有些另是作为一种提示，提示后自动消失，不需要用户去操作，对于 UI 来说，只是有没有按钮的区别。对于提示框整体来说，需要解决的一个问题就是在不同的情况下，不显示按钮区域，并改变高度。

@@ -12,7 +12,7 @@ date: 2016-04-04 14:31:29
 
 欧路词典只提供这三个快捷键任意组合
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f2knh3b0c8j20dj05awf2.jpg)
+![](https://i.imgur.com/Tojkf4h.jpg)
 
 这三个键用到的地方太多了，似乎怎么组合都容易冲突，而且我个人习惯来说，之前用 [BetterTouchTool](https://www.boastr.net/) 把 `Shift+Command+W` 映射到了 三指轻拍 这个动作来取词，所以我准备把 `Shift+Command+W` 映射到欧路词典中设置的 `Control+Commmand`上用来取词
 
@@ -20,7 +20,7 @@ date: 2016-04-04 14:31:29
 
 首先打开 `private.xml`
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f2knm67ciuj20m80hu0w5.jpg)
+![](https://i.imgur.com/FoTxgCs.jpg)
 
 根据 Karabiner 文档中的语法 https://pqrs.org/osx/karabiner/xml.html.en#keytokey-syntax
 和 Karabiner 中预设的按键代码列表 https://github.com/tekezo/Karabiner/blob/version_10.18.0/src/bridge/generator/keycode/data/KeyCode.data
@@ -40,7 +40,7 @@ date: 2016-04-04 14:31:29
 `__KeyToKey__` 下面第一行就是映射后的快捷键，第二行是映射到的快捷键，也就是用第一行的组合代替第二行的组合。
 把以上代码放到 `<root>` 节点下，这样 `private.xml` 就编写完成了，保存 `private.xml` 后，返回 `Karabiner` 设置的第一页，点击 `Reload XML` 即可。
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f2knxpiakjj20m80hu0wq.jpg)
+![](https://i.imgur.com/RgBhECQ.jpg)
 
 
 Karabiner 还提供了很多组合方法，单一按键映射，组合键映射到单一键，组合键映射到组合键等，有需求的话可以研究一下。

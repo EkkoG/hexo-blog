@@ -19,11 +19,11 @@ iOS 中时常需要把某个 View 圆角处理，这样界面看起来更圆融�
 view.layer.cornerRadius = 8.0f;
 ```
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77j6k27llj20hs0git90)
+![](https://i.imgur.com/aCcn01y.jpg)
 
 如果该 View 有子 View，会是这种状况
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77j9loszdj20hs0gkdg2)
+![](https://i.imgur.com/QBbQmjq.jpg)
 
 <!-- more -->
 
@@ -33,7 +33,7 @@ view.layer.cornerRadius = 8.0f;
 view.clipsToBounds = YES;
 ```
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77jaik660j20hs0hkt92)
+![](https://i.imgur.com/KhH5p6R.jpg)
 
 如果需要边框，也简单，加上 layer 的边框设置就可以。
 
@@ -44,11 +44,11 @@ view.clipsToBounds = YES;
 
 但是如果细看，会发现边框有严重的黑边，特别是当 View 背景色比较深的时候。
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77kapky3dj20uo0xuq3v)
+![](https://i.imgur.com/2d5Iy0b.jpg)
 
 这个方法好处就是简单，哪里需要圆角就在哪里设置就可以了。当然也是有缺点的，这种方式处理的圆角很模糊，特别是在视图比较小的时候，质量不高，当背景色比较深的时候有边框有黑边现象，而且如果使用了 `clipToBounds`，则会触发离屏渲染（这个一个很大的坑，有兴趣的话可以详细了解下），造成很严重的卡顿问题，特别是在 UITableViewCell 的子 View 中这样使用，掉帧会很严重。
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f7781hpzf7j20dm0b4mxd)
+![](https://i.imgur.com/LgMPTSw.jpg)
 
 ## 设置 mask layer
 
@@ -84,7 +84,7 @@ UIView+CPYExtension.m
 
 运行后看到效果如下：
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77jz0biaxj20hs0j03yv)
+![](https://i.imgur.com/JNeTaY8.jpg)
 
 一个只有四个角的 layer 盖到原来的 layer 上，达到圆角效果。
 
@@ -136,11 +136,11 @@ UIView+CPYExtension.m
 ```
 效果是这样的：
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77ku0l1mvj20hs0isq30)
+![](https://i.imgur.com/yxwg8uS.jpg)
 
 如果放大了看，是这样的
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77kuvjl4oj20uo0xsgm3)
+![](https://i.imgur.com/vlyVE58.jpg)
 
 边框刚好骑在了边界上，如果这时候我们在使用 maskLayer 做圆角，那骑在边界上的边框有外面一半将被吃掉，只剩下一半，所以要把 borderLayer 往里挪一半的边框的距离，避免让 maskLayer 吃掉外面那部分边框。
 
@@ -170,7 +170,7 @@ UIView+CPYExtension.m
 
 效果如下：
 
-![](https://ws3.sinaimg.cn/bmiddle/74681984gw1f77lwgcd3ij20hs0iimxv)
+![](https://i.imgur.com/uuwdVs5.jpg)
 
 首先根据 View 的大小和背景色，生成一张图片，生成图片的方法如下：
 
@@ -252,7 +252,7 @@ UIView+CPYExtension.m
 
 这个遮罩层不是上面提遮罩 layer，是一张你想要保留的形状的一张图片，比如想要圆角图片，可以让设计师做一张这样图片：
 
-![](https://github.com/johnil/VVeboTableViewDemo/blob/master/VVeboTableViewDemo/corner_circle@2x.png?raw=true)
+![](https://i.imgur.com/ZhBlEqg.png)
 
 中间透明，周围是想要盖住的形状，最中看到的是中间留下来的形状，这种做法没有什么性能损耗，就是需要麻烦设计师做一张图。
 

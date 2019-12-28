@@ -34,12 +34,12 @@ CoccoaPods 会问几个问题
 
 我们这里不对这些选项做深入的探讨，我们只需要一个 Example demo 工程，前缀必选的，其他选 No 
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66ke400ngj20qk0nvqbj)
+![](https://i.imgur.com/Ud6rHEZ.jpg)
 
 
 完成后在当前目录会出现一个 `CPYPrivatePodsDemo` 目录，cd 到这个目录中，我们可以看到如下文件
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66k0gknsaj208a03eq36)
+![](https://i.imgur.com/5yGR46t.jpg)
 
 这样我们就得到一个样板工程，完成创建后 CocoaPods 会打开样例工程的 `.xcworkspace` 文件。
 
@@ -47,19 +47,19 @@ CoccoaPods 会问几个问题
 
 把组件相关的类放到 `CPYPrivatePodsDemo/Classes` 目录中，这是里之所以要放到这个目录下是因为 Example 工程是中生成 Podfile 文件中指定了这个目录是源文件地址，我们按照默认的走就好。这里我们创建了一个测试文件和一个头文件，导入了这个测试文件，共三个文件放到 `Classes` 文件夹，如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66k6nqmuvj20y0070q4t)
+![](https://i.imgur.com/qx6BgWx.jpg)
 
 之后我们需要更新 Example 工程，在终端中 cd 到 Example 目录下并运行 `pod install` 命令
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66k878ogcj20ku04qmym)
+![](https://i.imgur.com/eMWtPGQ.jpg)
 
 CocoaPods 会更新 pod，这里直接从之前的 `Classes` 文件夹中获取文件更新，完成后我们再看回 Xcode 的目录树，添加的三个文件出现在了 `Development Pods` 下
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66kg3k76gj20m60noq62)
+![](https://i.imgur.com/x3SEgvG.jpg)
 
 此时我们可以在测试一下，在 `ViewController` 导入这个框架，看看能不能创建 `CPYTestView`
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66krdecl5j21260h042q)
+![](https://i.imgur.com/uIeIIy9.jpg)
 
 嗯。。。好像编译通过了，这样就完成一半了，剩下的就是把这个 pod 发布，放到一个大家都可以访问的地方。
 
@@ -140,7 +140,7 @@ pod lib lint CPYPrivatePodsDemo.podspec
 
 如果结果显示如下，说明是合法的
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66mmrlax5j209b02r0t3)
+![](https://i.imgur.com/ZTK9pzw.jpg)
 
 然后我们在另建一个工程，运行 `pod init` 初始化 Podfile，加入 pod 并指定 podspec 路径，这里指定本地的 podspec 文件的路径。
 
@@ -154,7 +154,7 @@ end
 
 然后执行 `pod install`，顺利的话就可以安装成功了。如图
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66n0ipzjfj20qb04dmyw)
+![](https://i.imgur.com/zXwEZsN.jpg)
 
 ## 发布 podspec
 
@@ -168,13 +168,13 @@ pod repo add private https://git.coding.net/cielpy/spec.git
 
 然后发布我们刚才编辑的 podspec 文件
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66n76lxkzj20er08njt0)
+![](https://i.imgur.com/H00Zshe.jpg)
 
 显已添加到远程仓库中。
 
 去远程仓库中看看
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66n8g04kej20dm06l0t2)
+![](https://i.imgur.com/2Qh6Hnw.jpg)
 
 有了！
 
@@ -195,7 +195,7 @@ end
 
 不指定版本号会取最新的一个版本，然后 `pod update` 更新版本的 podspec 并安装，正常的话，得到如下结果。
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f66nc3xqxsj20lo05lmyl)
+![](https://i.imgur.com/x14ALII.jpg)
 
 到这里就完成了。
 

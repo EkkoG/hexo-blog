@@ -16,7 +16,7 @@ date: 2016-09-05 21:21:53
 
 试着写了个 Demo，Cell 类似微博的时间线，最上方是一个用户名 Label，往下依次是标题，内容，和一个按钮，最终效果如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7j2157mdqj20hs0vk77n.jpg)
+![](https://i.imgur.com/oCDSoWs.jpg)
 
 
 内容是一个随机长度的字符串，按照之前的想法，这样一个简单的 Cell 的约束应该怎么样设置呢。
@@ -82,7 +82,7 @@ date: 2016-09-05 21:21:53
 
 最终效果如下，注意第二个 Cell 是没有内容的。
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7j354gunrj20hs0vktcb.jpg)
+![](https://i.imgur.com/qM5W60f.jpg)
 
 这样一个动态高度的 Cell 就实现了，设置好约束后还是挺简单的。
 

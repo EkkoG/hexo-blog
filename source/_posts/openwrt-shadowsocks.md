@@ -12,7 +12,7 @@ date: 2016-01-22 18:28:22
 大概从12年底开始学习使用 [GoAgent](https://github.com/goagent/goagent) 翻墙开始，到后来开翻墙软件成了上网的起手式，最后把翻墙软件部署到了路由器上，连接路由器的所有设备不用配置自动翻墙。就像这位推友说的
 <!-- more -->
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f08gjaes3hj20hj0crq5b.jpg)
+![](https://i.imgur.com/ckrG0eu.jpg)
 
 也瞎折腾了几年了，这里介绍下我现在在用的方案。
 
@@ -76,7 +76,7 @@ Windows 建议用 putty http://www.putty.org/
 
 出现类似如下界面就是登录成功了
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f79g740emcj20zo0jqgsn)
+![](https://i.imgur.com/35HbSxV.jpg)
 
 ### 传输 ipk 文件到路由器并安装
 
@@ -126,11 +126,11 @@ DNS2SOCKS 需要一个 SOCKS5 代理，其原理就是将 DNS 解析请求通过
 
 登录路由器后台，服务-影梭，切到服务器管理选项卡，填上自己的 shadowsocks账号即可，可以配置多个服务器，方便一个挂了的时候切换到另一个:)
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f79i16p15bj20ep0eggms)
+![](https://i.imgur.com/GriH5at.jpg)
 
 在基本设置中，可以设置选用的服务器，以及设置 SOCKS5 代理使用哪个 shadowsocks 服务器，并设置 SOCKS5 代理端口，留给下文中的 DNS2SOCKS 用。
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f79icll52kj20ei0lf0u7)
+![](https://i.imgur.com/rWAD5AK.jpg)
 
 如果透明代理的 UDP 服务器处提示 tproxy 模块缺失，则需要安装一下 tproxy 模块，命令如下：
 
@@ -307,7 +307,7 @@ wget -O- 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest' | awk -
 
 这个命令主要是去 [APNIC](https://www.apnic.net/) 拿所有的 IP 列表，并过滤出来中国大陆的 IP-CIDR 列表，生成一个文件在 `/etc/chinadns_chnroute.txt`，最后这个路径可以自己设置，不过这个路径要在 shadowsocks 界面配置，打开路由器后台，找到 服务-影梭，并切换到访问控制选项下，做如下设置：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f79j17jq5dj20de0a8gmi)
+![](https://i.imgur.com/HWOo8p1.jpg)
 
 这个路径就是刚才请求中国大陆 IP-CIDR 列表时保存的那个路径了。
 

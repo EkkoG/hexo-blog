@@ -75,10 +75,10 @@ No valid iOS Distribution signing identities belonging to team 9ATJxxxx were fou
 ```
 
 找了一些方法，挨个试了下，最简单的就是把相关的证书拖到系统钥匙串中，至少有两个：
-![](https://ws3.sinaimg.cn/large/74681984gw1fao5gvoy1yj20il08vjst.jpg)
-![](https://ws3.sinaimg.cn/large/74681984gw1fao5iyqwgmj20kt09gmxz.jpg)
+![](https://i.imgur.com/Qs6wFYG.jpg)
+![](https://i.imgur.com/ToxtaCh.jpg)
 一个是打包所用的证书，一个是使用的这个证书的签发者的证书：
-![](https://ws3.sinaimg.cn/large/74681984gw1fao5k911m5j20e90c0gnk.jpg)
+![](https://i.imgur.com/Gz0dADQ.jpg)
 
 因为计划任务的环境中本身就读得到系统钥匙串，所以 archive 导出的时候就可以正常找到证书，完成导出过程。
 

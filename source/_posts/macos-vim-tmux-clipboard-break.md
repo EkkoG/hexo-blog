@@ -51,13 +51,13 @@ bind -t vi-copy y copy-pipe 'pbcopy'
 但是这个也不工作了。在 Stackoverflow 找到了一个解决方案：
 [On MacOS Sierra beta 5 using iterm 2 and tmux, I have lost the ability to copy/paste in tmux.](https://superuser.com/questions/1114694/on-macos-sierra-beta-5-using-iterm-2-and-tmux-i-have-lost-the-ability-to-copy-p/1114729) ，在 Iterm 2 中，需要打开一个选项，使应用可以访问剪切板：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7oziukghgj20jj06eq4e.jpg)
+![](https://i.imgur.com/ujbAjO4.jpg)
 
 勾上这个选项后，在 Tmux 中可以正常使用 `y` 来访问剪切板，复制内容到系统的剪切板中。
 
 最后一个问题，在暂时退出 Tmux 会话时，会报一个警告：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7ozm3q7wbj20ug032dgu.jpg)
+![](https://i.imgur.com/a1V8Xp4.jpg)
 
 查到 Tmux 中一个组件（姑且这么叫吧）kqueue 在 macOS Sierra 上不工作了，在 Tmux 最新的更改中已经默认关掉了这个功能，可以使用 brew 安装最新的版本解决：
 

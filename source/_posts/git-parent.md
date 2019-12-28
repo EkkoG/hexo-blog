@@ -30,7 +30,7 @@ git log --pretty=format:'%s' HEAD~10..HEAD
 
 Git 中有一个特殊的指针 `HEAD`，它指向当前所在的本地分支（也可以认为是本地当前分支的别名），如果所有的提交都在同一个分支（假设是 master）产生，HEAD 应该指向 master 分支，如图所示：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7ns1ctiksj20m70dkwgd.jpg)
+![](https://i.imgur.com/vbGwPoI.jpg)
 图1
 
 `HEAD^` 指向其父提交，`HEAD^^` 指向其父提交的父提交即祖父提交，`^` 后面可以跟数字，`HEAD^1` 意为第一父提交，`HEAD^2` 为第二父提交，这个语法只有在合并分支时产生的提交中有效，合并分支时产生的提交有两个父提交，第一父提交为合并前当前分支的最后一次提交，第二父提交为被合并的分支的最后一次提交。`HEAD~` 形式中 `~` 后面也可以跟数字，`HEAD~1` 为父提交，`HEAD~2` 为父提交的父提交即祖父提交。参见：[祖先引用](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%80%89%E6%8B%A9%E4%BF%AE%E8%AE%A2%E7%89%88%E6%9C%AC#祖先引用)
@@ -62,7 +62,7 @@ git show HEAD~3
 
 如果有分支合并情况，假设目前的分支状态如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7nsj2uityj20tm0gowhk.jpg)
+![](https://i.imgur.com/Hix9aQs.jpg)
 图 2
 
 在 qwq3 的时候有分支 test 产生，于 db56 提交后，合并入 master 分支并产生提交 ad0b。

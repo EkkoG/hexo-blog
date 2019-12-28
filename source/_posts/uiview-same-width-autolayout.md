@@ -73,7 +73,7 @@ Autolayout 的布局规则是写 View 与 View 间的相对关系，我们来分
 
 效果如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7b1rgrf8bj20hs09yt8s)
+![](https://i.imgur.com/su7OfTg.jpg)
 
 也可以不设置容器 View 的宽度或者边距约束，让它根据子 View 的布局后的大小自行调整大小，但是这样的话，就需要设置子 View 到容器的边距约束，不然没办法完成布局。代码如下：
 
@@ -103,7 +103,7 @@ Autolayout 的布局规则是写 View 与 View 间的相对关系，我们来分
 
 这样约束条件都满足了，运行看一下效果：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7b22fwniej20hs064t8o)
+![](https://i.imgur.com/2uoumre.jpg)
 
 同理，也可以垂直等高排列：
 
@@ -129,7 +129,7 @@ Autolayout 的布局规则是写 View 与 View 间的相对关系，我们来分
 ```
 效果如下：
 
-![](https://ws3.sinaimg.cn/large/74681984gw1f7b3ek2c1gj20hs0gemx7)
+![](https://i.imgur.com/3mXl3Il.jpg)
 
 嗯，还不错 :)
 
