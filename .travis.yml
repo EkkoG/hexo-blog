@@ -10,11 +10,10 @@ branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_80b769817dc1_key -iv $encrypted_80b769817dc1_iv
-  -in .travis/blog.enc -out ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
+- openssl aes-256-cbc -K $encrypted_a99f0ed79e16_key -iv $encrypted_a99f0ed79e16_iv -in .travis/imciel-deployer.enc -out  ~/.ssh/imciel-deployer -d
+- chmod 600 ~/.ssh/imciel-deployer
 - eval $(ssh-agent)
-- ssh-add ~/.ssh/id_rsa
+- ssh-add ~/.ssh/imciel-deployer
 - cp .travis/ssh_config ~/.ssh/config
 - git config --global user.name "cielpy"
 - git config --global user.email "beijiu572@gmail.com"
