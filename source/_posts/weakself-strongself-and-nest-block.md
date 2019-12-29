@@ -30,7 +30,7 @@ DemoViewController.m
 
 当 `viewDidLoad` 方法执行时，创建一个 block 并赋值给对象 `v` 的 `callbackBlock` 属性，`callbackBlock` 捕捉 `self`，`self` 持有 `self.view`, v 在 `addSubview` 后成为 `self.view` 的子 view 而被 `self.view` 持有，这样就形成了一个引用循环，如下：
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fmpzcj8g1bj30bd05zq30.jpg)
+![](https://i.imgur.com/rwa1Sta.jpg)
 
 <!-- more -->
 
@@ -70,7 +70,7 @@ DemoViewController.m
 
 ```
 
-![](https://ws4.sinaimg.cn/large/006tNc79gy1fmpzibrsxfj30ax05tt8r.jpg)
+![](https://i.imgur.com/38cv1lI.jpg)
 
 `callbackBlock` 不直接引用 `self`，影响 `self` 的释放，由此打破循环，所有对象可以正常释放。
 

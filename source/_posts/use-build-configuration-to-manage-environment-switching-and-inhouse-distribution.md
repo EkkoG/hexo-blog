@@ -80,7 +80,7 @@ Xcode 还提供一个功能，称之为 `User-defined setting`，Xcode 的工程
 
 ![](https://i.imgur.com/Xg5kedN.jpg)
 
-![](https://ws2.sinaimg.cn/large/006tNc79ly1fnwpl3dsqej30zk0ll0xc.jpg)
+![](https://i.imgur.com/VgZTw6b.jpg)
 
 这样我们可以读取 Info.plist 中的 key `API_BASE_URL`，在使用不同的配置打包时，同一个 key 得到三个不同的值，以达到连接到不同的环境的目的。
 
@@ -90,9 +90,9 @@ Xcode 还提供一个功能，称之为 `User-defined setting`，Xcode 的工程
 
 添加一个 `User-defined setting` 名为 `CPY_BUNDLE_NAME` 的变量，三个配置分别给三个值，并在 Info.plist 中引用，如图
 
-![](https://ws4.sinaimg.cn/large/006tNc79ly1fnwpbm2pycj30ho023q33.jpg)
+![](https://i.imgur.com/7bghx5S.jpg)
 
-![](https://ws1.sinaimg.cn/large/006tNc79ly1fnwpcyzkdbj30zk0lln21.jpg)
+![](https://i.imgur.com/BGUUWZc.jpg)
 
 这样通过不同的配置打出来的包安装在手机上有了不同的名字，同理可以设置可执行文件的名字等。
 
