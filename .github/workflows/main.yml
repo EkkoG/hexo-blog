@@ -6,10 +6,15 @@ jobs:
     name: A job to deploy blog.
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
       with:
         submodules: true # Checkout private submodules(themes or something else).
     
+
+    - uses: actions/setup-node@v2-beta
+      with:
+        node-version: '13'
+
     # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
     - name: Cache node modules
       uses: actions/cache@v2
@@ -19,13 +24,10 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
+
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '13'
-          check-latest: true
-      - run: npm ci
+      run: npm ci
     
     # Deploy hexo blog website.
     - name: Deploy
