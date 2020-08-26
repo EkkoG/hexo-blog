@@ -14,7 +14,6 @@ git config --global user.email "$INPUT_USER_EMAIL"
 
 # install hexo env
 npm install hexo-cli -g
-npm install hexo-deployer-git --save
 
 # pull original publish repo
 NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
