@@ -1,0 +1,3 @@
+[submodule "themes/hexo-theme-even"]
+	path = themes/hexo-theme-even
+	url = https://github.com/cielpy/hexo-theme-even.git
