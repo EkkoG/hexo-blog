@@ -99,8 +99,8 @@ markdown-img-upload 中有一个 clipboard 模块，展示了怎么样读取剪�
 ## 写在后面
 
 到这里 workflow 就制作完毕了，我设置了两个快捷键。
-![](https://ws3.sinaimg.cn/large/74681984gw1f5xbkf7f9oj20nh0geabb
-)
+
+![](https://i.imgur.com/34dfgrq.png)
 
 Ctrl + Command + V 只复制图片 URL，Ctrl + Command + B 复制 Markdown 格式字符串并插入图片 URL。
 

@@ -93,7 +93,7 @@ echo FILTERED_CHANGES="$(echo "$LOG_WITH_LINK")" >> build.properties
 
 使用 `>>` 对文件进行追加，使用 `>` 进行覆盖，这里看自己情况选择就好。
 
-按照 [Jenkins 变量传递](https://ws3.sinaimg.cn/large/74681984gw1f7gttdvfffj21kw0exjty.jpg) 的方法设置，在之后的步骤中，就可以使用 `FILTERED_CHANGES` 变量了。
+按照 [Jenkins 变量传递](https://i.imgur.com/1QVXHQZ.png) 的方法设置，在之后的步骤中，就可以使用 `FILTERED_CHANGES` 变量了。
 
 整个过程就是一个面向 Google 折腾的过程，由于对这些替换匹配操作都不熟，所以一步一查，可以看本篇文章那长长的参考资料列表 :( 不过最终达到了效果，还不错 :)
 
