@@ -12,9 +12,11 @@ date: 2016-05-09 23:01:36
 
 使用 GitHub 的 [Pages](https://pages.github.com/) 服务可以很方便的搭建个人博客，安全稳定，加上有很多开源的静态博客生成器 https://www.staticgen.com/ 大部分只需要在本地安装，生成网站，并发布到 Pages 的 repo 中即可，还是挺方便的。基本上配置好后，只管写文章就好。
 
-静态博客有很多好处，不需要数据库，页面加载速度快（当然这和服务器有很大关系），大部分生成器支持 Markdown，自定义主题，可以部署在任何服务器上，只要可以在公网访问就可以了。GitHub 的 Pages 服务足够稳定也很方便，唯一的不足大概就是自定义域名的时候不能启用 HTTPS 访问吧，看样子 GitHub 一时半会儿是不会支持这个特性，那还是自己来吧。 [Let's Encrypt](https://letsencrypt.org/) 已经结束 Beta 很久，就想着把博客搬到 VPS 上，启动 HTTPS，前两天脑补了一个方案
+静态博客有很多好处，不需要数据库，页面加载速度快（当然这根服务器有很大关系），大部分生成器支持 Markdown，自定义主题，可以部署在任何服务器上，只要可以在公网访问就可以了。GitHub 的 Pages 服务足够稳定也很方便，唯一的不足大概就是自定义域名的时候不能启用 HTTPS 访问吧，看样子 GitHub 一时半会儿是不会支持这个特性，那还是自己来吧。 [Let's Encrypt](https://letsencrypt.org/) 已经结束 Beta 很久，就想着把博客搬到 VPS 上，启动 HTTPS，前两天脑补了一个方案
 
-用 Webhook 接收博客更新信息，拉取其代码，并在 VPS 上构建，再搭一个 Nginx，就可以配置 HTTPS 了。
+<!-- more -->
+
+![](https://o4zqhe4wo.qnssl.com/blog-img/1462799893920.png)
 
 今天就试着动手折腾一下。
 
