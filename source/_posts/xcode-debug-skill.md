@@ -12,16 +12,17 @@ date: 2016-06-10 12:54:06
 
 有些断点不是经常触发，可以加上声音，这触发的时候会发出声音提醒一下。
 
-![](https://www.bignerdranch.com/img/blog/2013/11/edit-breakpoint-menu.png)
+![](https://i.imgur.com/YrrVBsW.png)
 
-![](https://www.bignerdranch.com/img/blog/2013/11/edit-breakpoint-window.png)
+
+![](https://i.imgur.com/aFyudRn.png)
 
 
 <!-- more -->
 
 Action 改为 sound
 
-![](https://www.bignerdranch.com/img/blog/2013/11/breakpoint-actions.png)
+![](https://i.imgur.com/BtF4jbR.png)
 
 "Automatically continue after evaluation" 的意思是触发断点的时候继续执行。
 
@@ -44,10 +45,10 @@ Action 改为 sound
 
 "Add Symbolic Breakpoint..."
 
-![](https://www.bignerdranch.com/img/blog/2013/11/add-breakpoint-menu.png)
+![](https://i.imgur.com/nOXX6tu.png)
 
 
-![](https://www.bignerdranch.com/img/blog/2013/11/UIViewController-viewDidLoad-symbolic-breakpoint.png)
+![](https://i.imgur.com/X0w57IJ.png)
 
 这样每个 UIViewController 对象的 `viewDidLoad` 方法执行的时候都会自动断点。类似的，可以给别的看不到代码的方法加上断点。
 
@@ -59,7 +60,7 @@ Watchpoints 可以监控变量的值，或者内存地址的变化。
 
 在打断点，触发断点后，找到想要监控的变量。右键可以看到 `Watch xxx`
 
-![](https://www.bignerdranch.com/img/blog/2013/11/set-watchpoint-menu.png)
+![](https://i.imgur.com/0SxZ5p0.png)
 
 点击就可以看到在断点列表里多了一个断点。当然也可以加个声音什么的提醒一下。
 
