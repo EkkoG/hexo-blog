@@ -9,8 +9,7 @@ categories:
 date: 2016-06-28 22:30:20
 ---
 
-如果经常逛 GitHub，经常 clone GitHub 上某个仓库的代码，那么就会经常遇到一个问题，看下图
-![](https://o4zqhe4wo.qnssl.com/blog-img/1467124551557.png)
+如果经常逛 GitHub，经常 clone GitHub 上某个仓库的代码，那么就会经常遇到一个问题，就是 clone 的时巨慢，几K/s 这样。
 
 小一点的仓库可能等一下就过去了，如果是很大的仓库，如这个 Git 的源代码仓库，或者 `CocoaPods` 的 `Specs` 仓库，这些仓库的大小可能在几百M，`Specs` 仓库 clone 下来是300M 左右，如果是几十K的速度，等 clone 完成人就已经疯了，这也是为什么在配置 CocoaPods 后，运行 `pod setup` 命令时总是卡半天不动的原因所在。如果手上有代理，且代理的质量还不错，那么就可以考虑让 Git 走代理，这样可以提高 clone 代码时的速度，改善生活质量:)
 
