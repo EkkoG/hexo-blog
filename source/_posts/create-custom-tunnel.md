@@ -13,6 +13,8 @@ categories:
 
 从使用 [GoAgent](https://www.wikiwand.com/zh/GoAgent) 翻墙开始，到后来用理稳定的 [Shadowsocks](http://shadowsocks.org/en/index.html)，SS 不太稳定后又换到 [V2Ray](https://v2ray.com/)（主要是 vmess 协议），一直在 「用」而不了解其实现，迫于现在翻墙有越来越难的趋势，还是了解一下比较好。
 
+<!-- more -->
+
 ### 从 Shadowsocks 开始
 
 首先看看 SS 是怎么实现的，先找了一个早期的版本，要求是功能较为完善，实现简单，目前的版本已经较为复杂，各平台的兼容代码也较多，最终选了一个 2014 年的版本，1.3.7，链接放这里 https://github.com/shadowsocks/shadowsocks/tree/9d3e2d717753ba9489fcd553cd444449fffb13ac
