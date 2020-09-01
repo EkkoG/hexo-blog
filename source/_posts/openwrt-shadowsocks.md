@@ -9,6 +9,21 @@ categories:
 date: 2016-01-22 18:28:22
 ---
 
+2020 年 9 月 1 日更新
+
+现在可以选的工具更多了，也有新的协议流行，像 vmess, brook 等等，工具比如 [OpenClash](https://github.com/vernesong/OpenClash), [Surge](https://nssurge.com/), [Passwall](https://github.com/xiaorouji/openwrt-package/tree/master/lienol/luci-app-passwall), [luci-app-ssr-plus](https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-ssr-plus), 以及我目前在用的 [luci-app-v2ray](https://github.com/kuoruan/luci-app-v2ray)
+
+
+目前我在用的方案已经不是本文所述的了，简单描述一下目前在用的方案
+
+- 软路由，OpenWrt-19.07.3 系统，硬件用的 j3455 平台，运行在 PVE 虚拟机管理平台上
+- 网件 R7000 作为 AP
+- 在 OpenWrt 中安装 [luci-app-v2ray](https://github.com/kuoruan/luci-app-v2ray), 比较简单，配置服务器用就好了
+
+x86 平台跑路由器系统很稳定，Youtube 稳定 100m/s 以上，体验还是相当不错的。
+
+---
+
 大概从12年底开始学习使用 [GoAgent](https://github.com/goagent/goagent) 翻墙开始，到后来开翻墙软件成了上网的起手式，最后把翻墙软件部署到了路由器上，连接路由器的所有设备不用配置自动翻墙。就像这位推友说的
 <!-- more -->
 
