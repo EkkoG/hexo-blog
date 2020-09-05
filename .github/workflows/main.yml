@@ -42,8 +42,7 @@ jobs:
         deploy_key: ${{ secrets.DEPLOY_KEY }}
         user_name: cielpy  # (or delete this input setting to use bot account)
         user_email: beijiu572@gmail.com  # (or delete this input setting to use bot account)
-        commit_msg: test
-        # commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
+        commit_msg: ${{ github.event.head_commit.message }}  # (or delete this input setting to use hexo default settings)
         publish: 'true'
     # Use the output from the `deploy` step(use for test action)
     - name: Get the output
