@@ -16,13 +16,13 @@ git config --global user.email "$INPUT_USER_EMAIL"
 npm install hexo-cli -g
 
 # need publish?
-if [ "$INPUT_PUBLISH" == "true" ]
+if [ $INPUT_PUBLISH == "true" ]
 then
     # pull original publish repo
     NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
 
     # deployment
-    if [ "$INPUT_COMMIT_MSG" == "" ]
+    if [ $INPUT_COMMIT_MSG == "" ]
     then
         hexo g -d
     else
