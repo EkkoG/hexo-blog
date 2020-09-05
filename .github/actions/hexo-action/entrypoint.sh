@@ -32,4 +32,5 @@ then
     echo ::set-output name=notify::"Deploy complate."
 else
     hexo g
+    echo ::set-output name=notify::"Build succeed."
 fi
