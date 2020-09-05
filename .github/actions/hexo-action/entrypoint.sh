@@ -15,15 +15,21 @@ git config --global user.email "$INPUT_USER_EMAIL"
 # install hexo env
 npm install hexo-cli -g
 
-# pull original publish repo
-NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
-
-# deployment
-if [ "$INPUT_COMMIT_MSG" == "" ]
+# need publish?
+if [ "$INPUT_PUBLISH" == "true" ]
 then
-    hexo g -d
-else
-    hexo g -d -m "$INPUT_COMMIT_MSG"
-fi
+    # pull original publish repo
+    NODE_PATH=$NODE_PATH:$(pwd)/node_modules node /sync_deploy_history.js
 
-echo ::set-output name=notify::"Deploy complate."
+    # deployment
+    if [ "$INPUT_COMMIT_MSG" == "" ]
+    then
+        hexo g -d
+    else
+        hexo g -d -m "$INPUT_COMMIT_MSG"
+    fi
+
+    echo ::set-output name=notify::"Deploy complate."
+else
+    hexo g
+fi
