@@ -1,5 +1,9 @@
-on: [push]
-
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '*'
 jobs:
   build:
     runs-on: ubuntu-latest
