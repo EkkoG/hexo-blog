@@ -14,7 +14,7 @@ jobs:
 
     - uses: actions/setup-node@v2-beta
       with:
-        node-version: '13'
+        node-version: '12'
 
     # Caching dependencies to speed up workflows. (GitHub will remove any cache entries that have not been accessed in over 7 days.)
     - name: Cache node modules
