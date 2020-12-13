@@ -23,7 +23,7 @@ date: 2016-01-22 18:28:22
 
 x86 平台跑路由器系统很稳定，Youtube 稳定 100Mbp/s 以上，体验还是相当不错的。
 
-## 方案更新一：
+## 方案更新二：
 
 在更新一的基础上，替换掉 luci-app-v2ray，使用 [OpenClash](https://github.com/vernesong/OpenClash) + [SmartDNS](https://github.com/pymumu/smartdns), SmartDNS 作为 clash 的唯一上游 DNS
 
