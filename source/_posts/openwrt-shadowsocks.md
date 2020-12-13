@@ -14,13 +14,28 @@ date: 2016-01-22 18:28:22
 现在可以选的工具更多了，也有新的协议流行，像 vmess, brook 等等，工具比如 [OpenClash](https://github.com/vernesong/OpenClash), [Surge](https://nssurge.com/), [Passwall](https://github.com/xiaorouji/openwrt-package/tree/master/lienol/luci-app-passwall), [luci-app-ssr-plus](https://github.com/kenzok8/openwrt-packages/tree/master/luci-app-ssr-plus), 以及我目前在用的 [luci-app-v2ray](https://github.com/kuoruan/luci-app-v2ray)
 
 
+## 方案更新一：
 目前我在用的方案已经不是本文所述的了，简单描述一下目前在用的方案
 
 - 软路由，OpenWrt-19.07.3 系统，硬件用的 j3455 平台，运行在 PVE 虚拟机管理平台上
 - 网件 R7000 作为 AP
 - 在 OpenWrt 中安装 [luci-app-v2ray](https://github.com/kuoruan/luci-app-v2ray), 比较简单，配置服务器用就好了
 
-x86 平台跑路由器系统很稳定，Youtube 稳定 100m/s 以上，体验还是相当不错的。
+x86 平台跑路由器系统很稳定，Youtube 稳定 100Mbp/s 以上，体验还是相当不错的。
+
+## 方案更新一：
+
+在更新一的基础上，替换掉 luci-app-v2ray，使用 [OpenClash](https://github.com/vernesong/OpenClash) + [SmartDNS](https://github.com/pymumu/smartdns), SmartDNS 作为 clash 的唯一上游 DNS
+
+优点
+
+- SmartDNS 并发解析，取最快的结果，SmartDNS 可以配置速度检测策略，比如 ping 和 TCP 请求 80 端口等等
+- 代理策略组比较完善，v2ray 目前只能选一个节点，路由功能相对较弱
+- 可以开启 IPv6，没有 SmartDNS 开 IPv6 访问国外网站速度很慢，主要原因还是 IPv6 的国际出口太小，三大运营商加起来不到 100Gbps, SmartDNS 可以针对性的对指定域名忽略其 AAAA 记录，使其只走 IPv4
+
+
+目前的方案，SmartDNS 同时得到多个 IPv4 地址和 IPv6 地址，并在所有的地址中进行速度检测，取响应最快的，就目前的体验来看，改善非常明显。同时 clash 可以灵活的配置策略组，对不同的域名、IP 段等走不同的代理出去，相对灵活，且由于官方提供了 [Dashboard](https://github.com/Dreamacro/clash-dashboard)，管理界面体验统一。
+
 
 ---
 
