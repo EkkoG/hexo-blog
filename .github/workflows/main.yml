@@ -37,7 +37,7 @@ jobs:
     # Deploy hexo blog website.
     - name: Deploy
       id: deploy
-      uses: ./.github/actions/hexo-action
+      uses: sma11black/hexo-action@v1.0.4
       with:
         deploy_key: ${{ secrets.DEPLOY_KEY }}
         user_name: cielpy  # (or delete this input setting to use bot account)
